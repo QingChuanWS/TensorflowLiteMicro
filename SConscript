@@ -1,9 +1,16 @@
+# RT-Thread building script for bridge
+
+import os
 from building import *
 
-cwd     = GetCurrentDir()
-src     = Glob('*.c') + Glob('*.cpp')
-CPPPATH = [cwd]
+cwd = GetCurrentDir()
+objs = []
+list = os.listdir(cwd)
 
-group = DefineGroup('Hello', src, depend = ['PKG_USING_HELLO'], CPPPATH = CPPPATH)
+if GetDepend('PKG_USING_HELLO'):
+    for d in list:
+        path = os.path.join(cwd, d)
+        if os.path.isfile(os.path.join(path, 'SConscript')):
+            objs = objs + SConscript(os.path.join(d, 'SConscript'))
 
-Return('group')
+Return('objs')

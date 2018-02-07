@@ -1,0 +1,29 @@
+config PKG_USING_HELLO
+    bool "hello: the hello example package"
+    default n
+
+if PKG_USING_HELLO
+
+    config PKG_HELLO_PATH
+        string
+        default "/packages/misc/hello"
+
+    choice
+        prompt "version"
+        default PKG_USING_HELLO_LATEST_VERSION
+        help 
+            Select the version of hello
+
+        config PKG_USING_HELLO_V100
+            bool "v1.0.0"
+
+        config PKG_USING_HELLO_LATEST_VERSION
+            bool "latest"
+    endchoice
+
+    config PKG_HELLO_VER
+        string
+        default "v1.0.0" if PKG_USING_HELLO_V100
+        default "latest" if PKG_USING_HELLO_LATEST_VERSION
+
+endif
