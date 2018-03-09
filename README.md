@@ -11,7 +11,7 @@ RT-Thread上的演示用package。
 | 名称 | 说明 |
 | ---- | ---- |
 | doc | 文档目录 |
-| example | 例子 |
+| example | 例子目录，并有相应的一些说明 |
 | inc | 头文件目录 |
 | src | 源代码目录 |
 
