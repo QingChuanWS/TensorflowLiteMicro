@@ -43,5 +43,5 @@ hello package遵循LGPLv2.1许可。
 
 ## 联系方式 & 感谢
 
-* 维护：Bernard Xiong
-* 主页：N/A
+* 维护：name
+* 主页：site
