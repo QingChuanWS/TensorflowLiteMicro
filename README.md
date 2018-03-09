@@ -8,6 +8,13 @@ RT-Thread上的演示用package。
 
 ### 目录结构
 
+| 名称 | 说明 |
+| ---- | ---- |
+| doc | 文档目录 |
+| example | 例子 |
+| inc | 头文件目录 |
+| src | 源代码目录 |
+
 ### 许可证
 
 hello package遵循LGPLv2.1许可。
