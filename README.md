@@ -1,12 +1,14 @@
 # hello
 
-RT-Thread上的演示用package。
+## 1、介绍
 
-## 介绍
+> 说明：你需要在这里对项目进行简单的介绍，描述项目背景，当前现状、功能特点等等……
 
-这个是一个RT-Thread上的演示用package，用于演示一个package大致包括哪些东西，以及对应的一些模版文件。
+这是一个在 RT-Thread 上，用于演示的 package 。展示了一个 package 大致包括哪些东西，以及对应的一些模版文件。
 
-### 目录结构
+### 1.1 目录结构
+
+> 说明：参考下面表格，整理出 packages 的目录结构
 
 | 名称 | 说明 |
 | ---- | ---- |
@@ -15,33 +17,45 @@ RT-Thread上的演示用package。
 | inc | 头文件目录 |
 | src | 源代码目录 |
 
-### 许可证
+### 1.2 许可证
 
-hello package遵循LGPLv2.1许可。
+> 说明：请在这里说明该 package 的授权许可，例如： GPLv2、LGPLv2.1、MIT、Apache license v2.0、BSD 等。
 
-## 如何打开hello
+hello package 遵循 LGPLv2.1 许可，详见 `LICENSE` 文件。
 
-使用hello package需要在RT-Thread的包管理器中选择它：
+### 1.3 依赖
 
-    RT-Thread online packages
-        miscellaneous packages --->
-            [*] A hello package
+> 说明：列出该 package 对于其他 package 、RT-Thread 操作系统版本等软件方面的依赖关系。
 
-然后让RT-Thread的包管理器自动更新，或者使用`pkgs --update`命令更新包到BSP中。
+- RT-Thread 3.0+
 
-## 使用hello
+## 2、如何打开 hello
 
-在打开hello package后，当进行bsp编译时，它会被加入到bsp工程中进行编译。
+> 说明：描述该 package 位于 menuconfig 的位置，并对与其相关的配置进行介绍
 
-    [如果package需要做初始化，额外指出初始化步骤；或者指明对应导出的初始化宏]
+使用 hello package 需要在 RT-Thread 的包管理器中选择它，具体路径如下：
 
-* 完整的API手册可以访问这个[链接](doc/index.md)
+```
+RT-Thread online packages
+    miscellaneous packages --->
+        [*] A hello package
+```
 
-## 注意事项
+然后让 RT-Thread 的包管理器自动更新，或者使用 `pkgs --update` 命令更新包到 BSP 中。
 
-    [列出在使用这个package过程中需要注意的事项；列出可能出现的问题，以及解决办法]
+## 3、使用 hello
 
-## 联系方式 & 感谢
+> 说明：在这里简介使用流程，准备工作、API 等等。如果 package 需要做初始化，额外指出初始化步骤；或者指明对应导出的初始化宏。
+
+在打开 hello package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
+
+* 完整的 API 手册可以访问这个[链接](doc/index.md)
+
+## 4、注意事项
+
+> 说明：列出在使用这个 package 过程中需要注意的事项；列出常见的问题，以及解决办法。
+
+## 5、联系方式 & 感谢
 
 * 维护：name
 * 主页：site
