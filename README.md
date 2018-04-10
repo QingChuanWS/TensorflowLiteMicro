@@ -50,7 +50,7 @@ RT-Thread online packages
 
 在打开 hello package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
 
-* 完整的 API 手册可以访问这个[链接](doc/index.md)
+* 完整的 API 手册可以访问这个[链接](docs/api.md)
 
 ## 4、注意事项
 
