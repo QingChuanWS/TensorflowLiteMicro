@@ -51,6 +51,7 @@ RT-Thread online packages
 在打开 hello package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
 
 * 完整的 API 手册可以访问这个[链接](docs/api.md)
+* 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项
 
@@ -59,4 +60,4 @@ RT-Thread online packages
 ## 5、联系方式 & 感谢
 
 * 维护：name
-* 主页：site
+* 主页：https://github.com/RT-Thread-packages/hello
