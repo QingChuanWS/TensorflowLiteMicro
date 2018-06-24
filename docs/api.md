@@ -1,9 +1,12 @@
-
 # Hello API
 
-## `int hello_func(void)`
+## 打招呼
 
-hello_func 函数
+> 注意：对于函数介绍，必须遵循下面的格式
+
+`int hello_func(void)`
+
+hello_func 的函数描述
 
 | 参数              | 描述                                |
 |:------------------|:------------------------------------|
@@ -12,9 +15,9 @@ hello_func 函数
 |0                  | 正确执行                            |
 |-1                 | 失败                                |
 
-### 例子
+示例(可选)
 
-``` c
+``` {.c}
 #include <hello.h>
 
 int func()
