@@ -1,0 +1,19 @@
+import os
+from building import *
+
+# The set of source files associated with this SConscript file.
+src = Split('''
+string_util.cc
+''') + Glob('c/*.c') + Glob('core/api/*.cc') + Glob('experimental/microfrontend/lib/*.cc') \
++ Glob('experimental/microfrontend/lib/*.c') \
++ Glob('experimental/microfrontend/lib/tools/*.c') + Glob('kernels/*.cc') + Glob('kernels/internal/*.cc') \
++ Glob('micro/*.cc') + Glob('micro/kernels/*.cc') + Glob('micro/memory_planner/*.cc') + Glob('micro/testing/*.cc')  \
++ Glob('micro/examples/micro_speech/*.cc') + Glob('micro/examples/micro_speech/micro_features/*.cc')  \
++ Glob('schema/builtin_ops_header/*.cc')
+
+cwd = GetCurrentDir()
+CPPPATH = [cwd, str(Dir('#'))]
+
+group = DefineGroup('lite', src, depend = ['BSP_USING_TFLITE'], CPPPATH = CPPPATH)
+
+Return('group')

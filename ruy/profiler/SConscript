@@ -1,0 +1,9 @@
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c') + Glob('*.cc')
+CPPPATH = [cwd, str(Dir('#'))]
+
+group = DefineGroup('ruy', src, depend = ['BSP_USING_TFLITE'], CPPPATH = CPPPATH)
+
+Return('group')

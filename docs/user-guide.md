@@ -1,6 +1,8 @@
-# hello 使用说明
+# Tensorflow Lite Micro使用说明
 
-> 简短说明
+`Tensorflow Lite Micro` 是` TensorFlow Lite `的实验性端口，专门用于在微控制器和其他只有几千字节内存的设备上运行机器学习模型。
+
+它不需要操作系统支持、任何标准 C/C++ 库或动态内存分配。核心运行时在 Arm Cortex M3 上占用 16 KB 的内存，并且具有足够多的运算符来运行语音关键字检测模型，总共占用 22 KB 的内存。
 
 ## 准备工作（可选）
 

@@ -1,0 +1,29 @@
+from building import *
+
+# The set of source files associated with this SConscript file.
+src = Split('''
+audio_provider_mock.cc
+audio_provider_mock_test.cc
+command_responder.cc
+feature_provider.cc
+main_functions.cc
+no_30ms_sample_data.cc
+no_1000ms_sample_data.cc
+recognize_commands.cc
+yes_30ms_sample_data.cc
+yes_1000ms_sample_data.cc
+''')
+
+cwd = GetCurrentDir()
+
+CPPPATH = [cwd, str(Dir('#'))]
+
+group = DefineGroup('lite', src, depend = [''], CPPPATH = CPPPATH)
+
+list = os.listdir(cwd)
+
+for item in list:
+    if os.path.isfile(os.path.join(cwd, item, 'SConscript')):
+        group = group + SConscript(os.path.join(item, 'SConscript'))
+
+Return('group')
