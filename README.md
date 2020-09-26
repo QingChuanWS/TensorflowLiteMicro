@@ -2,7 +2,7 @@
 
 ## 1、介绍
 
-本软件包是针对RT-Thread内核的Tensorflow Lite嵌入式推理框架Tensorflow Lite Micro, 搭载了较为全面的Tensorflow Lite算子, 可以在性能较低的板子上实现基于Tensorflow Lite框架训练的模型的端测部署任务.
+本软件包是针对RT-Thread内核的Tensorflow Lite嵌入式推理框架Tensorflow Lite Micro软件包. 通过软件包可以实现在嵌入式系统中实现基于Tensorflow Lite框架训练的深度学习模型的端测部署任务.
 
 ### 1.1 目录结构
 
@@ -37,14 +37,15 @@ RT-Thread online packages
 
 ## 3、使用 Tensorflow Lite Micro
 
-在打开 hello package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
+在打开 Tensorflow Lite Micro package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
 
 * 完整的 API 手册可以访问这个[链接](docs/api.md)
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项
 
-- 本工程需要较大的内存(1G以上)以及线程栈(主线程要求16k以上)支持, 目前只在树莓派4平台(内存4G)上测试运行通过, 其他平台还有待测试.
+- 本软件包在运行时会占用16KB内存, 同时自带的语音识别案例在运行时总共占用22KB内存
+- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试.
 
 ## 5、联系方式 & 感谢
 
