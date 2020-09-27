@@ -8,17 +8,17 @@
 
 由于嵌入式设备具有有限的 RAM 和存储空间，因此限制了深度学习模型的规模。此外，本TensorFlow Lite Micro 目前只支持有限的一部分运算，因此并非所有的模型结构都是可行的。
 
-本部分介绍将一个 TensorFlow 模型转换为可在嵌入式设备中上运行的过程。本部分也概述了可支持的运算，并对设计与训练一个模型以使其符合内存限制给出了一些指导。
+本部分将介绍由 TensorFlow 模型转换为可在嵌入式设备中上运行的过程。本部分也概述了可支持的运算，并对设计与训练一个模型以使其符合内存限制给出了一些指导。
 
 ## 模型转换
 
-将一个已训练好的 TensorFlow 模型转换为可以在嵌入式设备中运行的Tensorflow Lite模型可以使用 [TensorFlow Lite 转换器 Python API](https://tensorflow.google.cn/lite/convert/python_api) 。它能够将模型转换成 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式，减小模型规模，并修改模型以使用 TensorFlow Lite 支持的运算。
+将一个已训练好的 TensorFlow 模型转换为可以在嵌入式设备中运行的Tensorflow Lite模型可以使用 [TensorFlow Lite 转换器 Python API](ModelConvert.md) 。它能够将模型转换成 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式，减小模型规模，并修改模型以使用 TensorFlow Lite 支持的运算。
 
 ### 量化
 
-为了获得尽可能小的模型规模，你应该考虑使用[训练后量化](https://tensorflow.google.cn/lite/performance/post_training_quantization)。它会降低你模型中数字的精度，从而减小模型规模。不过，这种操作可能会导致模型准确性的下降，对于小规模模型来说尤为如此。在量化前后分析你模型的准确性以确保这种损失在可接受范围内是非常重要的。
+为了获得尽可能小的模型规模，你应该考虑使用[训练后量化](https://tensorflow.google.cn/lite/performance/post_training_quantization)。它会降低你模型中数字的精度，从而减小模型规模。不过，这种操作可能会导致模型推理准确性的下降，对于小规模模型来说尤为如此, 所有我们需要在量化前后分析模型的准确性变换以确保这种损失在可接受范围内。
 
-以下的 Python 代码片段展示了如何使用预训练量化进行模型转换：
+以下这段 Python 代码片段展示了如何使用预训练量化进行模型转换：
 
 ```python
 import tensorflow as tf
@@ -30,7 +30,7 @@ open("converted_model.tflite", "wb").write(tflite_quant_model)
 
 ### 转换为一个 C 数组
 
-许多微控制器平台没有本地文件系统的支持。从程序中使用一个模型最简单的方式是将其以一个 C 数组的形式包含并编译进你的程序。
+许多微控制器平台没有本地文件系统的支持。从程序中使用一个模型最简单的方式是将其以一个 C 数组的形式并将其编译进你的程序。
 
 以下的 unix 命令会生成一个以 `char` 数组形式包含 TensorFlow Lite 模型的 C 源文件：
 
@@ -48,9 +48,9 @@ unsigned char converted_model_tflite[] = {
 unsigned int converted_model_tflite_len = 18200;
 ```
 
-一旦你已经生成了此文件，你可以将它包含入你的程序。在嵌入式平台上，将数组声明改变为 `const` 类型以获得更好的内存效率是重要的。
+在生成了此文件之后，你可以将它包含到你的程序。在嵌入式平台上，我们需要将该数组声明为 `const` 类型以获得更好的内存效率。
 
-一个如何在你的程序中包含及使用模型的例子，请见微型语音示例中的 [`tiny_conv_micro_features_model_data.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h) 。
+一个如何在你的程序中包含及使用模型的例子，请见微型语音示例中的 [`model.h`](tensorflow/lite/micro/examples/micro_speech/micro_features/model.h) 。
 
 ## 模型结构与训练
 
@@ -72,41 +72,41 @@ unsigned int converted_model_tflite_len = 18200;
 
 面向微控制器的 TensorFlow Lite 目前仅支持有限的部分 TensorFlow 运算，这影响了可以运行的模型结构。我们正致力于在参考实现和针对特定结构的优化方面扩展运算支持。
 
-已支持的运算可以在文件 [`all_ops_resolver.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/kernels/all_ops_resolver.cc) 中看到。
+已支持的运算可以在文件 [`micro_ops.h`](../tensorflow/lite/micro/kernels/micro_ops.h) 中看到。
 
 ## 运行推断
 
-以下部分将介绍[微语音](https://tensorflow.google.cn/lite/microcontrollers/get_started#微语音示例)示例中的 [main.cc](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/main.cc) 文件并解释了它如何使用用于微控制器的 Tensorflow Lite 来运行推断。
+以下部分将介绍软件包自带语音历程中的 [main_functions.cc](../tensorflow/lite/micro/examples/micro_speech/main_functions.cc) 文件并解释了它如何使用用于微控制器的 Tensorflow Lite 来运行推断。
 
 ### 包含项
 
 要使用库，必须包含以下头文件：
 
 ```C++
-#include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
+#include "tensorflow/lite/micro/kernels/micro_ops.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 #include "tensorflow/lite/version.h"
 ```
 
-- [`all_ops_resolver.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/kernels/all_ops_resolver.h) 提供给解释器（interpreter）用于运行模型的操作。
-- [`micro_error_reporter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/micro_error_reporter.h) 输出调试信息。
-- [`micro_interpreter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/micro_interpreter.h) 包含处理和运行模型的代码。
-- [`schema_generated.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/schema/schema_generated.h) 包含 TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) 模型文件格式的模式。
-- [`version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/version.h) 提供 Tensorflow Lite 架构的版本信息。
+- [`micro_ops.h`](../tensorflow/lite/micro/kernels/micro_ops.h) 提供给解释器（interpreter）用于运行模型的操作。
+- [`micro_error_reporter.h`](../tensorflow/lite/micro/micro_error_reporter.h) 输出调试信息。
+- [`micro_interpreter.h`](../tensorflow/lite/micro/micro_interpreter.h) 包含处理和运行模型的代码。
+- [`schema_generated.h`](../tensorflow/lite/schema/schema_generated.h) 包含 TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) 模型文件格式的模式。
+- [`version.h`](../tensorflow/lite/version.h) 提供 Tensorflow Lite 架构的版本信息。
 
 示例还包括其他一些文件。以下这些是最重要的：
 
 ```C++
 #include "tensorflow/lite/micro/examples/micro_speech/feature_provider.h"
 #include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h"
+#include "tensorflow/lite/micro/examples/micro_speech/micro_features/model.h"
 ```
 
-- [`feature_provider.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/feature_provider.h) 包含从音频流中提取要输入到模型中的特征的代码。
-- [`tiny_conv_micro_features_model_data.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h) 包含存储为 `char` 数组的模型。阅读 [“构建与转换模型”](https://tensorflow.google.cn/lite/microcontrollers/build_convert) 来了解如何将 Tensorflow Lite 模型转换为该格式。
-- [`micro_model_settings.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h) 定义与模型相关的各种常量。
+- [`feature_provider.h`](../tensorflow/lite/micro/examples/micro_speech/feature_provider.h) 包含从音频流中提取要输入到模型中的特征的代码。
+- [`model.h`](../tensorflow/lite/micro/examples/micro_speech/micro_features/model.h) 包含存储为 `char` 数组的模型。阅读 [“构建与转换模型”](ModelConvert.md)来了解如何将 Tensorflow Lite 模型转换为该格式。
+- [`micro_model_settings.h`](../tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h) 定义与模型相关的各种常量。
 
 ### 设置日志记录
 
@@ -121,7 +121,7 @@ tflite::ErrorReporter* error_reporter = &micro_error_reporter;
 
 ### 加载模型
 
-在以下代码中，模型是从一个 `char` 数组中实例化的，`g_tiny_conv_micro_features_model_data` （要了解其是如何构建的，请参见[“构建与转换模型”](https://tensorflow.google.cn/lite/microcontrollers/build_convert)）。 随后我们检查模型来确保其架构版本与我们使用的版本所兼容：
+在以下代码中，模型是从一个 `char` 数组中实例化的，`g_tiny_conv_micro_features_model_data` （要了解其是如何构建的，请参见[“构建与转换模型”](ModelConvert.md)）。 随后我们检查模型来确保其架构版本与我们使用的版本所兼容：
 
 ```C++
 const tflite::Model* model =
@@ -137,10 +137,10 @@ if (model->version() != TFLITE_SCHEMA_VERSION) {
 
 ### 实例化操作解析器
 
-解释器（interpreter）需要一个 [`AllOpsResolver`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/kernels/all_ops_resolver.h) 实例来访问 Tensorflow 操作。可以扩展此类以向您的项目添加自定义操作：
+解释器（interpreter）需要一个 [`micro_ops`](../tensorflow/lite/micro/kernels/micro_ops.h) 实例来访问 Tensorflow 操作。可以扩展此类以向您的项目添加自定义操作：
 
 ```C++
-tflite::ops::micro::AllOpsResolver resolver;
+tflite::ops::micro::micro_op_resolver resolver;
 ```
 
 ### 分配内存
@@ -180,11 +180,11 @@ if ((model_input->dims->size != 4) || (model_input->dims->data[0] != 1) ||
 }
 ```
 
-在这个代码段中，变量 `kFeatureSliceCount` 和 `kFeatureSliceSize` 与输入的属性相关，它们定义在 [`micro_model_settings.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h) 中。枚举值 `kTfLiteUInt8` 是对 Tensorflow Lite 某一数据类型的引用，它定义在 [`c_api_internal.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h) 中。
+在这个代码段中，变量 `kFeatureSliceCount` 和 `kFeatureSliceSize` 与输入的属性相关，它们定义在 [`micro_model_settings.h`](../tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h) 中。枚举值 `kTfLiteUInt8` 是对 Tensorflow Lite 某一数据类型的引用，它定义在 [`common.h`](../tenserflow/lite/c/common.h) 中。
 
 ### 生成特征
 
-我们输入到模型中的数据必须由微控制器的音频输入生成。[`feature_provider.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/feature_provider.h) 中定义的 `FeatureProvider` 类捕获音频并将其转换为一组将被传入模型的特征集合。当该类被实例化时，我们用之前获取的 `TfLiteTensor` 来传入一个指向输入数组的指针。`FeatureProvider` 使用它来填充将传递给模型的输入数据：
+我们输入到模型中的数据必须由微控制器的音频输入生成。[`feature_provider.h`](../tensorflow/lite/micro/examples/micro_speech/feature_provider.h) 中定义的 `FeatureProvider` 类捕获音频并将其转换为一组将被传入模型的特征集合。当该类被实例化时，我们用之前获取的 `TfLiteTensor` 来传入一个指向输入数组的指针。`FeatureProvider` 使用它来填充将传递给模型的输入数据：
 
 ```C++
   FeatureProvider feature_provider(kFeatureElementCount,
@@ -214,7 +214,7 @@ if (invoke_status != kTfLiteOk) {
 }
 ```
 
-我们可以检查返回值 `TfLiteStatus` 以确定运行是否成功。在 [`c_api_internal.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h) 中定义的 `TfLiteStatus` 的可能值有 `kTfLiteOk` 和 `kTfLiteError`。
+我们可以检查返回值 `TfLiteStatus` 以确定运行是否成功。在 [`common.h`](../tenserflow/lite/c/common.h) 中定义的 `TfLiteStatus` 的可能值有 `kTfLiteOk` 和 `kTfLiteError`。
 
 ### 获取输出
 
@@ -236,4 +236,4 @@ if (invoke_status != kTfLiteOk) {
     }
 ```
 
-在示例其他部分中，使用了一个更加复杂的算法来平滑多帧的识别结果。该部分在 [recognize_commands.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/recognize_commands.h) 中有所定义。在处理任何连续的数据流时，也可以使用相同的技术来提高可靠性。
+在示例其他部分中，使用了一个更加复杂的算法来平滑多帧的识别结果。该部分在 [recognize_commands.h](../tensorflow/lite/micro/examples/micro_speech/recognize_commands.h) 中有所定义。在处理任何连续的数据流时，也可以使用相同的技术来提高可靠性。

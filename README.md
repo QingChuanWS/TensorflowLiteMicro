@@ -30,7 +30,7 @@ RT-Thread 3.0+
 ```
 RT-Thread online packages
     miscellaneous packages --->
-        [*] Tensorflow Lite package
+        [*] Tensorflow Lite Micro package
 ```
 
 然后让 RT-Thread 的包管理器自动更新，或者使用 `pkgs --update` 命令更新包到 BSP 中。
