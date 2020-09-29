@@ -8,8 +8,10 @@ string_util.cc
 + Glob('experimental/microfrontend/lib/*.c') \
 + Glob('experimental/microfrontend/lib/tools/*.c') + Glob('kernels/*.cc') + Glob('kernels/internal/*.cc') \
 + Glob('micro/*.cc') + Glob('micro/kernels/*.cc') + Glob('micro/memory_planner/*.cc') + Glob('micro/testing/*.cc')  \
-+ Glob('micro/examples/micro_speech/*.cc') + Glob('micro/examples/micro_speech/micro_features/*.cc')  \
 + Glob('schema/builtin_ops_header/*.cc')
+
+if GetDepend(['BSP_USING_TFLITE_AUDIO_EXAMPLE']):
+    src += Glob('micro/examples/micro_speech/*.cc') + Glob('micro/examples/micro_speech/micro_features/*.cc') 
 
 cwd = GetCurrentDir()
 CPPPATH = [cwd, str(Dir('#'))]

@@ -1,9 +1,16 @@
 from building import *
 
 cwd     = GetCurrentDir()
-src     = Glob('*.c') + Glob('*.cpp')
-CPPPATH = [cwd]
+CPPPATH = [cwd, str(Dir('#'))]
+src = []
 
-group = DefineGroup('TFLMICRO', src, depend = ['TFLMICRO_USING_EXAMPLE'], CPPPATH = CPPPATH)
+if GetDepend(['BSP_USING_TFLITE_AUDIO_EXAMPLE']):
+    src += Split('audio_main.cc') 
+else:
+    src += Split('main.cc')
+
+
+
+group = DefineGroup('application', src, depend = [''], CPPPATH = CPPPATH)
 
 Return('group')

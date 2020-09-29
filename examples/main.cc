@@ -16,12 +16,11 @@ limitations under the License.
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
-#include "tensorflow/lite/micro/examples/micro_speech/main_functions.h"
 
-void TFLMicro_audio_test(int argc, char* argv[]) {
-  setup();
-  rt_kprintf("model load successfully!!\n");
-   while (1) {
-     loop();
-   }
+// This is the default main used on systems that have the standard C entry
+// point. Other devices (for example FreeRTOS or ESP32) that have different
+// requirements for entry code (like an app_main function) should specialize
+// this main.cc file in a target-specific subfolder.
+int main(int argc, char* argv[]) {
+  return 0;
 }
