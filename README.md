@@ -37,7 +37,7 @@ RT-Thread online packages
 
 ## 3、使用 Tensorflow Lite Micro
 
-在打开 Tensorflow Lite Micro package 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
+在打开 Tensorflow Lite Micro package 后，将其中的examples, fixedpoint, flatbuffers, ruy, tensorflow文件夹拷贝到工程根目录下, 之后通过menuconfig进行自定义功能配置, 再进行bsp编译时会自动加入到项目中进行编译
 
 * 完整的 API 手册可以访问这个[链接](docs/api.md)
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
