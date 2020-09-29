@@ -6,7 +6,7 @@ objs = []
 cwd  = GetCurrentDir()
 list = os.listdir(cwd)
 
-if GetDepend('BSP_USING_TFLITE'):
+if GetDepend('PKG_USING_TENSORFLOWLITEMICRO'):
     for d in list:
         path = os.path.join(cwd, d)
         if os.path.isfile(os.path.join(path, 'SConscript')):

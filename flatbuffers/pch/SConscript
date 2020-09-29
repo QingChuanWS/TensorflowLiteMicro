@@ -4,6 +4,6 @@ cwd     = GetCurrentDir()
 src     = Glob('*.c') + Glob('*.cc')
 CPPPATH = [cwd]
 
-group = DefineGroup('Flatbuffers', src, depend = ['BSP_USING_TFLITE'], CPPPATH = CPPPATH)
+group = DefineGroup('Flatbuffers', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
 
 Return('group')
