@@ -72,7 +72,7 @@ unsigned int converted_model_tflite_len = 18200;
 
 面向微控制器的 TensorFlow Lite 目前仅支持有限的部分 TensorFlow 运算，这影响了可以运行的模型结构。我们正致力于在参考实现和针对特定结构的优化方面扩展运算支持。
 
-已支持的运算可以在文件 [`micro_ops.h`](../tensorflow/lite/micro/kernels/micro_ops.h) 中看到。
+已支持的运算可以在文件 [`all_ops_resolver.cc`](../tensorflow/lite/micro/all_ops_resolver.cc) 中看到。
 
 ## 运行推断
 
