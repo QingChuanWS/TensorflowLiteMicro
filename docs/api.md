@@ -1,6 +1,8 @@
 # Tensorflow Lite Micro API
 
-## 目前软件包支持的算子
+## 目前软件包支持的算子(共52个算子)
+
+每个算子定义的详细内容可以参见[`all_ops_resolver.cc`](../tensorflow/lite/micro/all_ops_resolver.cc)
 
 | 算子名称              		| 描述  |
 |:-------------------------------------|--------|
@@ -55,16 +57,3 @@
 | `SVDF()` |  |
 | `TANH()` | tan(x)函数 |
 | `UNPACK()` |  |
-
-示例(可选)
-
-```c
-#include <hello.h>
-
-int func()
-{
-    hello_func();
-    
-    return 0;
-}
-```
