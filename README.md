@@ -39,7 +39,8 @@ RT-Thread online packages
 
 在打开 Tensorflow Lite Micro package 后，将其中的examples, fixedpoint, flatbuffers, ruy, tensorflow文件夹拷贝到工程根目录下, 之后通过menuconfig进行自定义功能配置, 再进行bsp编译时会自动加入到项目中进行编译
 
-* 完整的 API 手册可以访问这个[链接](docs/api.md)
+* Tensorflow Lite Micro结构比较复杂, 所以请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署结构, 在此基础之上再考虑自定义开发的问题.
+*  API 手册可以访问这个[链接](docs/api.md), 其中提供了目前支持算子的情况
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项
