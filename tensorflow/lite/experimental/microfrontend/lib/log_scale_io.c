@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#include "tensorflow/lite/experimental/microfrontend/lib/log_scale_io.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/log_scale_io.h"
 
 void LogScaleWriteMemmap(FILE* fp, const struct LogScaleState* state,
                          const char* variable) {

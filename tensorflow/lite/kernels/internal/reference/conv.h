@@ -15,10 +15,8 @@ limitations under the License.
 #ifndef TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_CONV_H_
 #define TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_CONV_H_
 
-#include "tensorflow/lite/kernels/internal/types.h"
-#include "tensorflow/lite/kernels/internal/common.h"
-
-
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/types.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/common.h"
 
 namespace tflite {
 

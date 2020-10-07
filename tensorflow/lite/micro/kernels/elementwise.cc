@@ -15,9 +15,9 @@ limitations under the License.
 
 #include <cmath>
 
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/kernels/internal/tensor_ctypes.h"
-#include "tensorflow/lite/kernels/kernel_util.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/tensor_ctypes.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/kernel_util.h"
 
 namespace tflite {
 namespace ops {

@@ -30,10 +30,10 @@
 #include <tuple>
 
 // flatbuffers
-#include "flatbuffers/pch/pch.h"
-#include "flatbuffers/code_generators.h"
-#include "flatbuffers/flatbuffers.h"
-#include "flatbuffers/flexbuffers.h"
-#include "flatbuffers/idl.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/pch/pch.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/code_generators.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flexbuffers.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/idl.h"
 
 #endif // FLATBUFFERS_FLATC_PCH_H_

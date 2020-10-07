@@ -37,16 +37,41 @@ RT-Thread online packages
 
 ## 3、使用 Tensorflow Lite Micro
 
-在打开 Tensorflow Lite Micro package 后，将其中的examples, fixedpoint, flatbuffers, ruy, tensorflow文件夹拷贝到工程根目录下, 之后通过menuconfig进行自定义功能配置, 再进行bsp编译时会自动加入到项目中进行编译
+在打开 Tensorflow Lite Micro package 后:
 
-* Tensorflow Lite Micro结构比较复杂, 所以请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署结构, 在此基础之上再考虑自定义开发的问题.
+- 将`packages/TensorflowLiteMicro_xxx`(其中`xxx`为软件包版本号)更改为`packages/TensorflowLiteMicro`,
+- 通过menuconfig进行自定义功能配置, 其中menuconfig中的配置选项为:
+
+```
+RT-Thread online packages
+    miscellaneous packages --->
+        [*] Tensorflow Lite Micro package
+            Enable Tensorflow Lite Micro
+            Select Offical Example(Enable Tensorflow Lite Micro aduio example)
+```
+
+Select Offical Example中有三个选项:
+
+```
+(X) Enable Tensorflow Lite Micro audio example
+( ) No Tensorflow Lite Micro example
+```
+
+其中audio example是执行官方携带的语音demo, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架.(关于menucofing选项的注意事项请参照4. 注意事项部分!)
+
+- Tensorflow Lite Micro结构比较复杂, 所以请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署结构, 在此基础之上再考虑自定义开发的问题.
+
 *  API 手册可以访问这个[链接](docs/api.md), 其中提供了目前支持算子的情况
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项
 
-- 本软件包在运行时会占用16KB内存, 同时自带的语音识别案例在运行时总共占用22KB内存
+- 如果在menuconfig中选择了audio example选项则工程自带了main函数, 需要手动删除除了`packages/TensorflowLiteMicro/example/audio_main.cc`以外的所有main函数
+- 如果选择的是no example时, 系统没有main函数, 需要用户手动添加一个main函数,  
+- 本软件包在运行时会占用16KB内存, 同时自带的语音识别案例在运行时总共占用22KB内存, 需要通过menuconfig来修改主函数栈的大小以及内存管理算法 ! ! !
 - 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试.
+
+* 
 
 ## 5、联系方式 & 感谢
 

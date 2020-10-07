@@ -18,7 +18,7 @@ limitations under the License.
 #ifndef FLATBUFFERS_GENERATED_SCHEMA_TFLITE_H_
 #define FLATBUFFERS_GENERATED_SCHEMA_TFLITE_H_
 
-#include "flatbuffers/flatbuffers.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
 
 namespace tflite {
 

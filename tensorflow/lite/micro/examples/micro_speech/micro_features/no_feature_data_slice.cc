@@ -15,7 +15,7 @@ limitations under the License.
 
 // See the header for documentation on the meaning of this data.
 
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/no_feature_data_slice.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/no_feature_data_slice.h"
 
 const int8_t g_no_feature_data_slice[g_no_feature_data_slice_size] = {
     89,  68, 96,  83, 111, 96, 115, 87, 99,  76, 105, 84, 105, 86,

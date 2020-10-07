@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/simple_features/yes_simple_features_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/simple_features/yes_simple_features_data.h"
 
 /* File automatically created by
  * tensorflow/examples/speech_commands/wav_to_features.py \

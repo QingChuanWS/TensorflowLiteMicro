@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/command_responder.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/command_responder.h"
 
 // The default implementation writes out the name of the recognized command
 // to the error console. Real applications will want to take some custom

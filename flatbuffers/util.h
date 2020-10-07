@@ -19,7 +19,7 @@
 
 #include <errno.h>
 
-#include "flatbuffers/base.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/base.h"
 
 #ifndef FLATBUFFERS_PREFER_PRINTF
 #  include <sstream>

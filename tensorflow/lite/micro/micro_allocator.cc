@@ -13,25 +13,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/micro_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_allocator.h"
 
 #include <cstddef>
 #include <cstdint>
 
-#include "flatbuffers/flatbuffers.h"  // from @flatbuffers
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/core/api/error_reporter.h"
-#include "tensorflow/lite/core/api/flatbuffer_conversions.h"
-#include "tensorflow/lite/core/api/op_resolver.h"
-#include "tensorflow/lite/core/api/tensor_utils.h"
-#include "tensorflow/lite/kernels/internal/compatibility.h"
-#include "tensorflow/lite/micro/compatibility.h"
-#include "tensorflow/lite/micro/memory_helpers.h"
-#include "tensorflow/lite/micro/memory_planner/memory_planner.h"
-#include "tensorflow/lite/micro/memory_planner/greedy_memory_planner.h"
-#include "tensorflow/lite/micro/micro_op_resolver.h"
-#include "tensorflow/lite/micro/simple_memory_allocator.h"
-#include "tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"  // from @flatbuffers
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/error_reporter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/flatbuffer_conversions.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/op_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/tensor_utils.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/memory_helpers.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/memory_planner/memory_planner.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/memory_planner/greedy_memory_planner.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_op_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/simple_memory_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
 
 namespace tflite {
 

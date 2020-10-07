@@ -9,8 +9,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
-#include "tensorflow/lite/experimental/microfrontend/lib/tools/kiss_fftr.h"
-#include "tensorflow/lite/experimental/microfrontend/lib/_kiss_fft_guts.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/tools/kiss_fftr.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/_kiss_fft_guts.h"
 
 struct kiss_fftr_state{
     kiss_fft_cfg substate;

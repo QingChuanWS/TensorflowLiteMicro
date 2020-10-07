@@ -17,10 +17,10 @@ limitations under the License.
 
 #include <algorithm>
 
-#include "fixedpoint/fixedpoint.h"
-#include "tensorflow/lite/kernels/internal/common.h"
-#include "tensorflow/lite/kernels/internal/compatibility.h"
-#include "tensorflow/lite/kernels/internal/types.h"
+#include "packages/TensorflowLiteMicro/fixedpoint/fixedpoint.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/types.h"
 
 namespace tflite {
 

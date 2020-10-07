@@ -20,7 +20,7 @@ limitations under the License.
 #include <cstring>
 #include <initializer_list>
 
-#include "tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
 
 namespace tflite {
 

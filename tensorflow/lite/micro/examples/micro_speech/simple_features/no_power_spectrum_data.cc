@@ -15,7 +15,7 @@ limitations under the License.
 
 // See the header for documentation on the meaning of this data.
 
-#include "tensorflow/lite/micro/examples/micro_speech/simple_features/no_power_spectrum_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/simple_features/no_power_spectrum_data.h"
 
 const uint8_t g_no_power_spectrum_data[g_no_power_spectrum_data_size] = {
     255, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

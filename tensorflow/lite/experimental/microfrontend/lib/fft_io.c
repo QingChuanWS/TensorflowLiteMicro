@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#include "tensorflow/lite/experimental/microfrontend/lib/fft_io.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/fft_io.h"
 
 void FftWriteMemmapPreamble(FILE* fp, const struct FftState* state) {
   fprintf(fp, "static int16_t fft_input[%zu];\n", state->fft_size);

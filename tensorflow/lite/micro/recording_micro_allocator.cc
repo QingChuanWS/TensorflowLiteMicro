@@ -13,12 +13,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/recording_micro_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/recording_micro_allocator.h"
 
-#include "tensorflow/lite/core/api/error_reporter.h"
-#include "tensorflow/lite/kernels/internal/compatibility.h"
-#include "tensorflow/lite/micro/compatibility.h"
-#include "tensorflow/lite/micro/recording_simple_memory_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/error_reporter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/recording_simple_memory_allocator.h"
 
 namespace tflite {
 

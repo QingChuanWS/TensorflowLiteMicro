@@ -33,6 +33,6 @@
 #include <type_traits>
 
 // flatbuffers
-#include "flatbuffers/util.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/util.h"
 
 #endif // FLATBUFFERS_PCH_H_

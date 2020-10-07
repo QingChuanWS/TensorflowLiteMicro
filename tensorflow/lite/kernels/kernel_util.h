@@ -18,9 +18,9 @@ limitations under the License.
 #include <algorithm>
 #include <limits>
 
-#include "flatbuffers/flatbuffers.h"
-#include "tensorflow/lite/c/builtin_op_data.h"
-#include "tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/builtin_op_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
 
 namespace tflite {
 

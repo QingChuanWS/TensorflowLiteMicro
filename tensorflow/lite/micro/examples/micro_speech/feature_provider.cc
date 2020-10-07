@@ -13,11 +13,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/feature_provider.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/feature_provider.h"
 
-#include "tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_features_generator.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_features_generator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
 
 FeatureProvider::FeatureProvider(int feature_size, int8_t* feature_data)
     : feature_size_(feature_size),

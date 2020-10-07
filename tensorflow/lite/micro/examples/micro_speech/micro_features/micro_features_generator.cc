@@ -16,10 +16,10 @@ limitations under the License.
 #include <cmath>
 #include <cstring>
 
-#include "tensorflow/lite/experimental/microfrontend/lib/frontend.h"
-#include "tensorflow/lite/experimental/microfrontend/lib/frontend_util.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_features_generator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/frontend.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/frontend_util.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_features_generator.h"
 
 // Configure FFT to output 16 bit fixed point.
 #define FIXED_POINT 16

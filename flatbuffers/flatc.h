@@ -21,9 +21,9 @@
 #include <limits>
 #include <string>
 
-#include "flatbuffers/flatbuffers.h"
-#include "flatbuffers/idl.h"
-#include "flatbuffers/util.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/idl.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/util.h"
 
 namespace flatbuffers {
 

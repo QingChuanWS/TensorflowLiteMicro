@@ -13,13 +13,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/string_util.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/string_util.h"
 
 #include <cstdlib>
 #include <cstring>
 #include <vector>
 
-#include "tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
 
 namespace tflite {
 

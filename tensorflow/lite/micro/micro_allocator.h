@@ -18,13 +18,13 @@ limitations under the License.
 #include <cstddef>
 #include <cstdint>
 
-#include "flatbuffers/flatbuffers.h"  // from @flatbuffers
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/core/api/error_reporter.h"
-#include "tensorflow/lite/micro/compatibility.h"
-#include "tensorflow/lite/micro/micro_op_resolver.h"
-#include "tensorflow/lite/micro/simple_memory_allocator.h"
-#include "tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"  // from @flatbuffers
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/error_reporter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_op_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/simple_memory_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
 
 namespace tflite {
 

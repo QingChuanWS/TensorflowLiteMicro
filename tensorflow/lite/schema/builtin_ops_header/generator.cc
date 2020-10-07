@@ -12,8 +12,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#include "tensorflow/lite/schema/builtin_ops_header/generator.h"
-#include "tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/builtin_ops_header/generator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
 
 namespace tflite {
 namespace builtin_ops_header {

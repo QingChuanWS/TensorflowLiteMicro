@@ -10,9 +10,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/all_ops_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/all_ops_resolver.h"
 
-#include "tensorflow/lite/micro/kernels/micro_ops.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/kernels/micro_ops.h"
 
 namespace tflite {
 namespace ops {

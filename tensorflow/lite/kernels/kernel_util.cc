@@ -12,14 +12,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#include "tensorflow/lite/kernels/kernel_util.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/kernel_util.h"
 
 #include <algorithm>
 #include <cmath>
 #include <memory>
 
-#include "tensorflow/lite/kernels/internal/cppmath.h"
-#include "tensorflow/lite/kernels/internal/quantization_util.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/cppmath.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/quantization_util.h"
 
 namespace tflite {
 

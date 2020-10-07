@@ -13,10 +13,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
-#include "tensorflow/lite/micro/examples/micro_speech/no_1000ms_sample_data.h"
-#include "tensorflow/lite/micro/examples/micro_speech/yes_1000ms_sample_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/no_1000ms_sample_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/yes_1000ms_sample_data.h"
 
 namespace {
 int16_t g_dummy_audio_data[kMaxAudioSampleSize];

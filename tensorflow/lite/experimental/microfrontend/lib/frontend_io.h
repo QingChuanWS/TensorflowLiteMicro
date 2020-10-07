@@ -15,7 +15,7 @@ limitations under the License.
 #ifndef TENSORFLOW_LITE_EXPERIMENTAL_MICROFRONTEND_LIB_FRONTEND_IO_H_
 #define TENSORFLOW_LITE_EXPERIMENTAL_MICROFRONTEND_LIB_FRONTEND_IO_H_
 
-#include "tensorflow/lite/experimental/microfrontend/lib/frontend.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/frontend.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -15,7 +15,7 @@ limitations under the License.
 
 // See the header for documentation on the meaning of this data.
 
-#include "tensorflow/lite/micro/examples/micro_speech/no_1000ms_sample_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/no_1000ms_sample_data.h"
 
 const int g_no_1000ms_sample_data_size = 16000;
 const int16_t g_no_1000ms_sample_data[16000] = {

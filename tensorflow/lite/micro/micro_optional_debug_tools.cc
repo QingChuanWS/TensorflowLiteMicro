@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#include "tensorflow/lite/micro/micro_optional_debug_tools.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_optional_debug_tools.h"
 
 // `cinttypes` requires `__STDC_FORMAT_MACROS` to be defined to expose `PRId32`.
 #ifndef __STDC_FORMAT_MACROS
@@ -25,11 +25,11 @@ limitations under the License.
 #include <cstdio>
 #include <vector>
 
-#include "flatbuffers/flatbuffers.h"  // from @flatbuffers
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/micro/micro_allocator.h"
-#include "tensorflow/lite/micro/micro_interpreter.h"
-#include "tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"  // from @flatbuffers
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_allocator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_interpreter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
 
 namespace tflite {
 namespace {

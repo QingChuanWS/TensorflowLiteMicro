@@ -17,8 +17,8 @@ limitations under the License.
 
 // TODO(ghodrat): Remove this header file and the dependency to internal data
 // structure.
-#include "tensorflow/lite/c/builtin_op_data.h"
-#include "tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/builtin_op_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
 
 #if defined(_MSC_VER)
 #define __restrict__ __restrict

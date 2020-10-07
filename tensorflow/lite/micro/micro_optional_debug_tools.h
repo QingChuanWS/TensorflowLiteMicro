@@ -17,7 +17,7 @@ limitations under the License.
 #ifndef TENSORFLOW_LITE_MICRO_MICRO_OPTIONAL_DEBUG_TOOLS_H_
 #define TENSORFLOW_LITE_MICRO_MICRO_OPTIONAL_DEBUG_TOOLS_H_
 
-#include "tensorflow/lite/micro/micro_interpreter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_interpreter.h"
 
 namespace tflite {
 // Prints a dump of what tensors and what nodes are in the interpreter.

@@ -18,15 +18,15 @@ limitations under the License.
 #include <cstdio>
 #include <cstring>
 
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/core/api/error_reporter.h"
-#include "tensorflow/lite/core/api/flatbuffer_conversions.h"
-#include "tensorflow/lite/kernels/internal/compatibility.h"
-#include "tensorflow/lite/kernels/op_macros.h"
-#include "tensorflow/lite/micro/compatibility.h"
-#include "tensorflow/lite/micro/kernels/micro_ops.h"
-#include "tensorflow/lite/micro/micro_op_resolver.h"
-#include "tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/error_reporter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/core/api/flatbuffer_conversions.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/op_macros.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/kernels/micro_ops.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_op_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
 
 namespace tflite {
 

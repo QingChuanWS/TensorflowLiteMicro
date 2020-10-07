@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/no_micro_features_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/no_micro_features_data.h"
 
 // Golden test values for the expected spectrogram from a "no" sample file
 // speech_commands_test_set_v0.02/no/f9643d42_nohash_4.wav.

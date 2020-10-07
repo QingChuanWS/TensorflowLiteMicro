@@ -23,10 +23,10 @@ limitations under the License.
 
 #include <functional>
 
-#include "fixedpoint/fixedpoint.h"
-#include "tensorflow/lite/kernels/internal/cppmath.h"
-#include "tensorflow/lite/kernels/internal/optimized/neon_check.h"
-#include "tensorflow/lite/kernels/internal/types.h"
+#include "packages/TensorflowLiteMicro/fixedpoint/fixedpoint.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/cppmath.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/optimized/neon_check.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/types.h"
 
 namespace tflite {
 

@@ -13,20 +13,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/micro_speech/main_functions.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/main_functions.h"
 
-#include "tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
-#include "tensorflow/lite/micro/examples/micro_speech/command_responder.h"
-#include "tensorflow/lite/micro/examples/micro_speech/feature_provider.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
-#include "tensorflow/lite/micro/examples/micro_speech/micro_features/model.h"
-#include "tensorflow/lite/micro/examples/micro_speech/recognize_commands.h"
-#include "tensorflow/lite/micro/kernels/micro_ops.h"
-#include "tensorflow/lite/micro/micro_error_reporter.h"
-#include "tensorflow/lite/micro/micro_interpreter.h"
-#include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
-#include "tensorflow/lite/schema/schema_generated.h"
-#include "tensorflow/lite/version.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/audio_provider.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/command_responder.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/feature_provider.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/micro_features/model.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/recognize_commands.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/kernels/micro_ops.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_error_reporter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_interpreter.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/micro_mutable_op_resolver.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/schema/schema_generated.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/version.h"
 
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {

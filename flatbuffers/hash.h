@@ -20,7 +20,7 @@
 #include <cstdint>
 #include <cstring>
 
-#include "flatbuffers/flatbuffers.h"
+#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
 
 namespace flatbuffers {
 

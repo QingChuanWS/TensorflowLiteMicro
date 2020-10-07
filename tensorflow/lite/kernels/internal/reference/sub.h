@@ -15,9 +15,9 @@ limitations under the License.
 #ifndef TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_SUB_H_
 #define TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_SUB_H_
 
-#include "fixedpoint/fixedpoint.h"
-#include "ruy/profiler/instrumentation.h"  // from @ruy
-#include "tensorflow/lite/kernels/internal/common.h"
+#include "packages/TensorflowLiteMicro/fixedpoint/fixedpoint.h"
+#include "packages/TensorflowLiteMicro/ruy/profiler/instrumentation.h"  // from @ruy
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/common.h"
 
 namespace tflite {
 

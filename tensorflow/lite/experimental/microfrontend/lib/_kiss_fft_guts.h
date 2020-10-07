@@ -10,7 +10,7 @@
    defines kiss_fft_scalar as either short or a float type
    and defines
    typedef struct { kiss_fft_scalar r; kiss_fft_scalar i; }kiss_fft_cpx; */
-#include "tensorflow/lite/experimental/microfrontend/lib/kiss_fft.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/kiss_fft.h"
 #include <limits.h>
 
 #define MAXFACTORS 32

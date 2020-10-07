@@ -19,12 +19,12 @@ limitations under the License.
 #include <limits>
 #include <utility>
 
-#include "fixedpoint/fixedpoint.h"
-#include "tensorflow/lite/c/builtin_op_data.h"
-#include "tensorflow/lite/kernels/internal/common.h"
-#include "tensorflow/lite/kernels/internal/compatibility.h"
-#include "tensorflow/lite/kernels/internal/cppmath.h"
-#include "tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
+#include "packages/TensorflowLiteMicro/fixedpoint/fixedpoint.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/builtin_op_data.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/compatibility.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/cppmath.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
 
 #if defined(_MSC_VER)
 #define __restrict__ __restrict

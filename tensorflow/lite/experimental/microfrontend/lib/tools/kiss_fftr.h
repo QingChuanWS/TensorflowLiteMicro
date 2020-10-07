@@ -9,7 +9,7 @@
 #ifndef KISS_FTR_H
 #define KISS_FTR_H
 
-#include "tensorflow/lite/experimental/microfrontend/lib/kiss_fft.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/kiss_fft.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

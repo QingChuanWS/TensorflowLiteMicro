@@ -42,8 +42,8 @@ limitations under the License.
 
 #include <vector>
 
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/string_type.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/string_type.h"
 
 namespace tflite {
 

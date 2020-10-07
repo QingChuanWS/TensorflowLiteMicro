@@ -27,11 +27,11 @@ limitations under the License.
 // instead of floating point, to help show how this can work on platforms that
 // don't have good float support.
 
-#include "tensorflow/lite/micro/examples/micro_speech/simple_features/simple_features_generator.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/simple_features/simple_features_generator.h"
 
 #include <math.h>
 
-#include "tensorflow/lite/micro/examples/micro_speech/simple_features/simple_model_settings.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/simple_features/simple_model_settings.h"
 
 namespace {
 

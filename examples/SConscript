@@ -6,10 +6,6 @@ src = []
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_AUDIO_EXAMPLE']):
     src += Split('audio_main.cc') 
-else:
-    src += Split('main.cc')
-
-
 
 group = DefineGroup('application', src, depend = [''], CPPPATH = CPPPATH)
 

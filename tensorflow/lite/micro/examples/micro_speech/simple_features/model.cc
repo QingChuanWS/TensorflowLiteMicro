@@ -18,7 +18,7 @@ limitations under the License.
 // for devices that don't have a file system. It was created using the command:
 // xxd -i model.tflite > model.cc
 
-#include "tensorflow/lite/micro/examples/micro_speech/simple_features/model.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/micro/examples/micro_speech/simple_features/model.h"
 
 const unsigned char g_model[] = {
     0x18, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x0e, 0x00,

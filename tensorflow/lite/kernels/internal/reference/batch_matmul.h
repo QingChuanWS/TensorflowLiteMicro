@@ -15,10 +15,10 @@ limitations under the License.
 #ifndef TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_BATCH_MATMUL_H_
 #define TENSORFLOW_LITE_KERNELS_INTERNAL_REFERENCE_BATCH_MATMUL_H_
 
-#include "tensorflow/lite/c/common.h"
-#include "tensorflow/lite/kernels/internal/common.h"
-#include "tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
-#include "tensorflow/lite/kernels/internal/types.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/c/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/common.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/kernels/internal/types.h"
 
 namespace tflite {
 namespace reference_ops {

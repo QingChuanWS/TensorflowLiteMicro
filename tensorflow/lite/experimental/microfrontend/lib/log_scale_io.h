@@ -17,7 +17,7 @@ limitations under the License.
 
 #include <stdio.h>
 
-#include "tensorflow/lite/experimental/microfrontend/lib/log_scale.h"
+#include "packages/TensorflowLiteMicro/tensorflow/lite/experimental/microfrontend/lib/log_scale.h"
 
 #ifdef __cplusplus
 extern "C" {
