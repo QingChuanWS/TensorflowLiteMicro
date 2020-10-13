@@ -15,7 +15,6 @@ This software package is the Tensorflow Lite embedded inference framework Tensor
 | ruy | Matrix acceleration library required by Tensorflow Lite Micro library ruy |
 | tensorflow | Tensorflow Lite Micro library |
 
-
 ### 1.2 License
 
 Tensorflow Lite Micro package complies with the LGPLv2.1 license, please refer to the `LICENSE` file for details.
