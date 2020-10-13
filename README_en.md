@@ -57,7 +57,7 @@ Among them, there are two options in Select Offical Example:
 ( ) No Tensorflow Lite Micro example
 ```
 
-Among them, audio example is to implement the official audio demo, No example does not integrate the example file, only uses the Tensorflow Lite Micro standard framework. **For the precautions of the menucofing option, please refer to the 4. Precautions section **
+Among them, audio example is to implement the official audio demo, No example does not integrate the example file, only uses the Tensorflow Lite Micro standard framework. **For the precautions of the menucofing option, please refer to the 4. Precautions section**
 
 - The whole framework of Tensorflow Lite Micro has more complicated functions and many APIs. Please refer to [introduction.md](introduction.md) first, and then use [user-guide.md](user-guide.md) to learn the basic deployment process, on this basis, consider the issue of custom development.
 
@@ -68,7 +68,7 @@ Among them, audio example is to implement the official audio demo, No example do
 
 - If the audio example option is selected in the menuconfig, the software package will use the self main function, and the user needs to manually delete all main functions except `packages/TensorflowLiteMicro/example/audio_main.cc`
 - If No example is selected, the system does not have main function, users can design the main function according to their own needs to call the Tensorflow Lite Micro framework
-- This software package occupies 16KB of memory at runtime, and the built-in speech recognition case occupies a total of 22KB of memory at runtime. You need to modify the size of the main function stack and the memory management algorithm through menuconfig!!!
+- This software package occupies 16KB of memory at runtime, and the built-in speech recognition demo occupies a total of 22KB of memory at runtime. You need to modify the size of the main function stack and the memory management algorithm through menuconfig!!!
 - This software package currently only runs successfully on the Raspberry Pi 4 platform, other platforms have yet to be tested.
 
 ## 5. Contact & Thanks
