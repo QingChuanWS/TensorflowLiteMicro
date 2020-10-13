@@ -5,10 +5,16 @@
 This software package is the Tensorflow Lite embedded inference framework Tensorflow Lite Micro software package for the RT-Thread ecosystem . Through this software package, the end deployment task of the deep learning model trained based on the Tensorflow Lite framework can be realized in the embedded system.
 
 ### 1.1 Directory structure
+| 名称        | 说明                                              |
+| ----------- | :------------------------------------------------ |
+| docs        | 文档目录                                          |
+| examples    | Tensorflow Lite Micro自带语音历程, 并给出一些说明 |
+| fixedpoint  | Tensorflow Lite Micro库需要的定点量化库           |
+| flatbuffers | Tensorflow Lite Micro库需要的模型解释库flatbuffer |
+| ruy         | Tensorflow Lite Micro库需要的矩阵加速库ruy        |
+| tensorflow  | Tensorflow Lite Micro主体库                       |
 
-| Name | Description |
-| ----------- | :------------------------------------ ------------ |
-| docs | Document directory |
+### 
 
 ### 1.2 License
 
