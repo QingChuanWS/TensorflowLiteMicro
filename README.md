@@ -59,7 +59,7 @@ RT-Thread online packages
 ( ) No Tensorflow Lite Micro example
 ```
 
-其中audio example是执行官方携带的语音demo, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架. **关于menucofing选项的注意事项请参照 4. 注意事项部分 **
+其中audio example是执行官方携带的语音demo, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架. **关于menucofing选项的注意事项请参照 4. 注意事项部分
 
 - Tensorflow Lite Micro整个框架功能较为复杂, API较多, 请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署流程, 在此基础之上再考虑自定义开发的问题.
 
