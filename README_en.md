@@ -9,11 +9,6 @@ This software package is the Tensorflow Lite embedded inference framework Tensor
 | Name | Description |
 | ----------- | :------------------------------------ ------------ |
 | docs | Document directory |
-| examples | Tensorflow Lite Micro offical voice demo |
-| fixedpoint | Fixed-point quantization library required by Tensorflow Lite Micro library |
-| flatbuffers | Model interpretation library flatbuffer required by Tensorflow Lite Micro library |
-| ruy | Matrix acceleration library required by Tensorflow Lite Micro library ruy |
-| tensorflow | Tensorflow Lite Micro library |
 
 ### 1.2 License
 
