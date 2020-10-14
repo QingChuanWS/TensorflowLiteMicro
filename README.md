@@ -71,7 +71,7 @@ RT-Thread online packages
 - 如果在menuconfig中选择了audio example选项时, 软件包自带了main函数, 用户需要手动删除除了`packages/TensorflowLiteMicro/example/audio_main.cc`以外的所有main函数
 - 如果选择的是No example时, 系统没有main函数, 用户可以根据自身需要设计main函数来调用Tensorflow Lite Micro框架  
 - 本软件包在运行时会占用16KB内存, 同时自带的语音识别案例在运行时总共占用22KB内存, 需要通过menuconfig来修改主函数栈的大小以及内存管理算法 ! ! !
-- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试.
+- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5、联系方式 & 感谢
 
