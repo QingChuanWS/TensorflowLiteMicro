@@ -1,5 +1,7 @@
 # Tensorflow Lite Micro Software Package
 
+[Chinese Version](./README.md) | English Version
+
 ## 1. Introduction
 
 This software package is the Tensorflow Lite embedded inference framework Tensorflow Lite Micro software package for the RT-Thread ecosystem . Through this software package, the end deployment task of the deep learning model trained based on the Tensorflow Lite framework can be realized in the embedded system.

@@ -1,6 +1,6 @@
 # Tensorflow Lite Micro 软件包
 
-[English Version](./README_en.md)
+中文版 | [English Version](./README_en.md)
 
 ## 1、介绍
 
