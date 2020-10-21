@@ -1,6 +1,6 @@
 # Tensorflow Lite Micro 软件包
 
-[English Version](./README_en.md)
+中文版 | [English Version](./README_en.md)
 
 ## 1、介绍
 
@@ -41,7 +41,7 @@ RT-Thread online packages
 
 在成功下载 Tensorflow Lite Micro package 之后:
 
-- 将`packages/TensorflowLiteMicro_xxx`(其中`xxx`为软件包版本号)更改为`packages/TensorflowLiteMicro`
+- 将下载在`packages`文件下的`TensorflowLiteMicro_xxx`(其中`xxx`为软件包版本号)软件包文件夹名更改为`TensorflowLiteMicro`(即去除版本号, 以免影响编译)
 - 通过menuconfig进行功能配置, 其中在menuconfig中的配置选项为:
 
 ```
@@ -70,8 +70,9 @@ RT-Thread online packages
 
 - 如果在menuconfig中选择了audio example选项时, 软件包自带了main函数, 用户需要手动删除除了`packages/TensorflowLiteMicro/example/audio_main.cc`以外的所有main函数
 - 如果选择的是No example时, 系统没有main函数, 用户可以根据自身需要设计main函数来调用Tensorflow Lite Micro框架  
-- 本软件包在运行时会占用16KB内存, 同时自带的语音识别案例在运行时总共占用22KB内存, 需要通过menuconfig来修改主函数栈的大小以及内存管理算法 ! ! !
-- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
+- **本软件包在编译之后大约会占用480KB Flash空间, 92KB RAM空间**, 所以不推荐硬件资源不多的MCU系统使用本软件包
+- 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **需要通过menuconfig来修改主函数栈的大小以及内存管理算法 ! **
+- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台上移植软件包并提出issue. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5、联系方式 & 感谢
 

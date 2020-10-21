@@ -1,5 +1,7 @@
 # Tensorflow Lite Micro Software Package
 
+[Chinese Version](./README.md) | English Version
+
 ## 1. Introduction
 
 This software package is the Tensorflow Lite embedded inference framework Tensorflow Lite Micro software package for the RT-Thread ecosystem . Through this software package, the end deployment task of the deep learning model trained based on the Tensorflow Lite framework can be realized in the embedded system.
@@ -39,7 +41,7 @@ Then let the RT-Thread package manager automatically update, or use the `pkgs --
 
 After successfully downloading the Tensorflow Lite Micro package:
 
-- Change `packages/TensorflowLiteMicro_xxx` (where `xxx` is the package version number) to `packages/TensorflowLiteMicro`
+- Change the package folder name of `TensorflowLiteMicro_xxx` (where `xxx` is the package version number) downloaded under the `packages` file to `TensorflowLiteMicro` (that is, remove the version number, so as not to affect compilation)
 - Function configuration through menuconfig, the configuration options in menuconfig are:
 
 ```
@@ -67,8 +69,12 @@ Among them, audio example is to implement the official audio demo, No example do
 ## 4. Matters needing attention
 
 - If the audio example option is selected in the menuconfig, the software package will use the self main function, and the user needs to manually delete all main functions except `packages/TensorflowLiteMicro/example/audio_main.cc`
+
 - If No example is selected, the system does not have main function, users can design the main function according to their own needs to call the Tensorflow Lite Micro framework
-- This software package occupies 16KB of memory at runtime, and the built-in speech recognition demo occupies a total of 22KB of memory at runtime. You need to modify the size of the main function stack and the memory management algorithm through menuconfig!!!
+
+- **This software package will occupy approximately 480KB Flash space and 92KB RAM space after compilation**, so it is not recommended for MCU systems with few hardware resources to use this software package
+- This software package occupies 16KB RAM space when running, and the built-in voice recognition case occupies a total of 22KB memory when running. **You need to modify the size of the main function stack and the memory management algorithm through menuconfig! **
+
 - This software package currently only runs successfully on the Raspberry Pi 4 platform, other platforms have yet to be tested. Raspberry Pi 4 porting  repositories link: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5. Contact & Thanks
