@@ -52,7 +52,7 @@ RT-Thread online packages
             Select Offical Example(Enable Tensorflow Lite Micro aduio example) --->
 ```
 
-其中, Select Offical Example中有两个个选项:
+其中, Select Offical Example中有两个选项:
 
 ```
 (X) Enable Tensorflow Lite Micro audio example
