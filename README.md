@@ -4,18 +4,18 @@
 
 ## 1、介绍
 
-本软件包是针对RT-Thread内核的Tensorflow Lite嵌入式推理框架Tensorflow Lite Micro软件包. 通过本软件包可以实现在嵌入式系统中实现基于Tensorflow Lite框架训练的深度学习模型的端测部署任务.
+本软件包是针对RT-Thread生态移植的Tensorflow Lite Micro嵌入式推理框架, 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架训练的深度学习模型的端测部署问题.
 
 ### 1.1 目录结构
 
 | 名称 | 说明 |
 | ---- | :--- |
 | docs  | 文档目录 |
-| examples | Tensorflow Lite Micro自带语音历程, 并给出一些说明 |
-| fixedpoint | Tensorflow Lite Micro库需要的定点量化库 |
-| flatbuffers | Tensorflow Lite Micro库需要的模型解释库flatbuffer |
-| ruy | Tensorflow Lite Micro库需要的矩阵加速库ruy |
-| tensorflow | Tensorflow Lite Micro主体库 |
+| examples | Tensorflow Lite Micro示例 |
+| fixedpoint | Google Fixedpoint定点量化库 |
+| flatbuffers | Google Flatbuffer模型解释库 |
+| ruy | Google Ruy矩阵计算加速库 |
+| tflite | Tensorflow Lite Micro推理框架 |
 
 ### 1.2 许可证
 
@@ -41,7 +41,6 @@ RT-Thread online packages
 
 在成功下载 Tensorflow Lite Micro package 之后:
 
-- 将下载在`packages`文件下的`TensorflowLiteMicro_xxx`(其中`xxx`为软件包版本号)软件包文件夹名更改为`TensorflowLiteMicro`(即去除版本号, 以免影响编译)
 - 通过menuconfig进行功能配置, 其中在menuconfig中的配置选项为:
 
 ```
@@ -50,6 +49,7 @@ RT-Thread online packages
         [*] Tensorflow Lite Micro: a lightweight deep learning end-test inference framework for RT-Thread operating system.
             Version(latest) --->
             Select Offical Example(Enable Tensorflow Lite Micro aduio example) --->
+            Select Tensorflow Lite Operations Type (Using Tensorflow Lite reference operations)  --->
 ```
 
 其中, Select Offical Example中有两个选项:
@@ -59,7 +59,18 @@ RT-Thread online packages
 ( ) No Tensorflow Lite Micro example
 ```
 
-其中audio example是执行官方携带的语音demo, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架. **关于menucofing选项的注意事项请参照 4. 注意事项部分**
+注 : audio example是执行官方携带的语音示例, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架. 
+
+- 如果选择了语音示例, 则需要从example文件夹下拷贝audio_main.cc文件到工程的Application目录中, 然后即可以编译, 烧录/下载查看效果了
+
+其中, Select Tensorflow Lite Operations Type中有两个选项:
+
+```
+(X) Using Tensorflow Lite reference operations
+( ) Using Tensorflow Lite CMSIS NN operations 
+```
+
+注 : reference operation是应用TFLMicro的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations是应用针对ARM平台进行特定优化的算子(主要针对Cortex M4内核以上的平台, 对于特定平台有特定加速). **有关注意事项请参照第四部分!!**
 
 - Tensorflow Lite Micro整个框架功能较为复杂, API较多, 请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署流程, 在此基础之上再考虑自定义开发的问题.
 
@@ -68,10 +79,10 @@ RT-Thread online packages
 
 ## 4、注意事项
 
-- 如果在menuconfig中选择了audio example选项时, 软件包自带了main函数, 用户需要手动删除除了`packages/TensorflowLiteMicro/example/audio_main.cc`以外的所有main函数
-- 如果选择的是No example时, 系统没有main函数, 用户可以根据自身需要设计main函数来调用Tensorflow Lite Micro框架  
-- **本软件包在编译之后大约会占用480KB Flash空间, 92KB RAM空间**, 所以不推荐硬件资源不多的MCU系统使用本软件包
-- 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **需要通过menuconfig来修改主函数栈的大小以及内存管理算法 !**
+- 目前CMSIS NN算子还处在测试阶段, 可能存在问题. 
+- 目前的CMSIS NN算子优化主要针对ARM Cortex M4以上的内核进行计算优化, 所以不推荐M4以下的MCU应用本选项.
+- 以集成语音demo的Tensorflow Lite Micro框架为例, **本软件包在编译之后大约会占用690KB Flash空间, 28K RAM空间** (平台数据 : 树莓派4 Cortex A72内核 64位, gcc-arm-8.3交叉工具链), 所以暂时不推荐硬件资源过于紧凑的MCU使用本软件包.(未来会针对资源紧凑型MCU进行定制优化)
+- 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **请注意通过menuconfig来修改主函数栈的大小以及内存管理算法 !**
 - 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台上移植软件包并提出issue. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5、联系方式 & 感谢

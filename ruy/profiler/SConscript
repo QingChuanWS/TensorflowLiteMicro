@@ -2,8 +2,8 @@ from building import *
 
 cwd     = GetCurrentDir()
 src     = Glob('*.c') + Glob('*.cc')
-CPPPATH = [cwd, str(Dir('#'))]
+CPPPATH = [cwd]
 
-group = DefineGroup('ruy', src, depend = ['BSP_USING_TFLITE'], CPPPATH = CPPPATH)
+group = DefineGroup('ruy', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
 
 Return('group')

@@ -21,11 +21,11 @@
 #include <memory>
 #include <stack>
 
-#include "packages/TensorflowLiteMicro/flatbuffers/base.h"
-#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
-#include "packages/TensorflowLiteMicro/flatbuffers/flexbuffers.h"
-#include "packages/TensorflowLiteMicro/flatbuffers/hash.h"
-#include "packages/TensorflowLiteMicro/flatbuffers/reflection.h"
+#include "base.h"
+#include "flatbuffers.h"
+#include "flexbuffers.h"
+#include "hash.h"
+#include "reflection.h"
 
 #if !defined(FLATBUFFERS_CPP98_STL)
 #  include <functional>

@@ -20,7 +20,7 @@
 #include <map>
 #include <sstream>
 
-#include "packages/TensorflowLiteMicro/flatbuffers/idl.h"
+#include "idl.h"
 
 namespace flatbuffers {
 

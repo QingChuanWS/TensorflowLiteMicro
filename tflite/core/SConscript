@@ -1,0 +1,18 @@
+from building import *
+import os
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c') + Glob('*.cc')
+root =  str(Dir('#'))
+packages = os.path.join(root, 'packages')
+file_list = os.listdir(packages)
+for f in file_list:
+    if(f.split('-')[0] == 'TensorflowLiteMicro'):
+        tflite = os.path.join(packages, f)
+        break
+
+CPPPATH = [cwd, tflite]
+
+group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+
+Return('group')

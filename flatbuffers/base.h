@@ -53,7 +53,7 @@
   #include <functional>
 #endif
 
-#include "packages/TensorflowLiteMicro/flatbuffers/stl_emulation.h"
+#include "stl_emulation.h"
 
 #if defined(__ICCARM__)
 #include <intrinsics.h>

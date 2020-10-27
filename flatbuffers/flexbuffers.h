@@ -19,9 +19,9 @@
 
 #include <map>
 // Used to select STL variant.
-#include "packages/TensorflowLiteMicro/flatbuffers/base.h"
+#include "base.h"
 // We use the basic binary writing functions from the regular FlatBuffers.
-#include "packages/TensorflowLiteMicro/flatbuffers/util.h"
+#include "util.h"
 
 #ifdef _MSC_VER
 #  include <intrin.h>

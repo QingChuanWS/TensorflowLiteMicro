@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "packages/TensorflowLiteMicro/ruy/profiler/instrumentation.h"
+#include "instrumentation.h"
 
 #ifdef RUY_PROFILER
 

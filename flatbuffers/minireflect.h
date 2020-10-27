@@ -17,8 +17,8 @@
 #ifndef FLATBUFFERS_MINIREFLECT_H_
 #define FLATBUFFERS_MINIREFLECT_H_
 
-#include "packages/TensorflowLiteMicro/flatbuffers/flatbuffers.h"
-#include "packages/TensorflowLiteMicro/flatbuffers/util.h"
+#include "flatbuffers.h"
+#include "util.h"
 
 namespace flatbuffers {
 
