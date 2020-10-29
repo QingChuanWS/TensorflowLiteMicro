@@ -15,7 +15,7 @@
 | fixedpoint | Google Fixedpoint定点量化库 |
 | flatbuffers | Google Flatbuffer模型解释库 |
 | ruy | Google Ruy矩阵计算加速库 |
-| tflite | Tensorflow Lite Micro推理框架 |
+| tflite | Google Tensorflow Lite Micro推理框架 |
 
 ### 1.2 许可证
 
@@ -63,7 +63,7 @@ RT-Thread online packages
 
 - 如果选择了语音示例, 则需要从example文件夹下拷贝audio_main.cc文件到工程的Application目录中, 然后即可以编译, 烧录/下载查看效果了
 
-其中, Select Tensorflow Lite Operations Type中有两个选项:
+Select Tensorflow Lite Operations Type中有两个选项:
 
 ```
 (X) Using Tensorflow Lite reference operations
@@ -77,10 +77,10 @@ RT-Thread online packages
 *  API 手册可以访问这个[链接](docs/api.md), 其中提供了目前支持算子的情况
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
-## 4、注意事项
+## 4、注意事项 
 
-- 目前CMSIS NN算子还处在测试阶段, 可能存在问题. 
-- 目前的CMSIS NN算子优化主要针对ARM Cortex M4以上的内核进行计算优化, 所以不推荐M4以下的MCU应用本选项.
+- 目前的CMSIS NN算子优化主要针对ARM Cortex M4以上的内核进行计算优化, 所以不推荐M4以下的MCU应用本选项. 同时基于CMSIS NN的算子优化目前只针对M系列的MCU, 对于其他其他内核型号的MCU暂不支持优化
+- 目前CMSIS NN算子还处在测试阶段, 可能存在问题.
 - 以集成语音demo的Tensorflow Lite Micro框架为例, **本软件包在编译之后大约会占用690KB Flash空间, 28K RAM空间** (平台数据 : 树莓派4 Cortex A72内核 64位, gcc-arm-8.3交叉工具链), 所以暂时不推荐硬件资源过于紧凑的MCU使用本软件包.(未来会针对资源紧凑型MCU进行定制优化)
 - 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **请注意通过menuconfig来修改主函数栈的大小以及内存管理算法 !**
 - 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台上移植软件包并提出issue. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro

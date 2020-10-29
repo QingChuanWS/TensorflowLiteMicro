@@ -11,17 +11,10 @@ file_list = os.listdir(packages)
 for f in file_list:
     if(f.split('-')[0] == 'TensorflowLiteMicro'):
         tflite = os.path.join(packages, f)
-        armnn = opjoin(tflite, 'tflite/micro/tools/cmsis/CMSIS/NN/Include')
-        cmsis = opjoin(tflite, 'tflite/micro/tools')
+        cmsis = opjoin(tflite, 'tflite/micro/tools/')
         break
 
-if GetDepend('PKG_USING_TENSORFLOWLITEMICRO_REFERENCE'):
-    src += Glob('*.cc') + Glob('reference/*.cc')
-    CPPPATH = [cwd, tflite]
-
-if GetDepend('PKG_USING_TENSORFLOWLITEMICRO_CMSISNN'):
-    src += Glob('*.cc') + Glob('cmsis-nn/*.cc')
-    CPPPATH = [cwd, cmsis, armnn]
+CPPPATH = [cwd, cmsis]
 
 
 group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
