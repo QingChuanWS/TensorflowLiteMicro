@@ -4,7 +4,7 @@
 
 ## 1、介绍
 
-本软件包是针对RT-Thread生态移植的Tensorflow Lite Micro嵌入式推理框架, 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架训练的深度学习模型的端测部署问题.
+本软件包是针对RT-Thread实时操作系统移植的嵌入式推理框架Tensorflow Lite Micro(简称TFLu), 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架实现深度学习模型的端测部署问题.
 
 ### 1.1 目录结构
 
@@ -72,6 +72,8 @@ Select Tensorflow Lite Operations Type中有两个选项:
 
 注 : reference operation是应用TFLMicro的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations是应用针对ARM平台进行特定优化的算子(主要针对Cortex M4内核以上的平台, 对于特定平台有特定加速). **有关注意事项请参照第四部分!!**
 
+- 本软件包目前在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台(例如STM32)上移植本软件包, 来实现自己的idea. 树莓派4版本移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
+
 - Tensorflow Lite Micro整个框架功能较为复杂, API较多, 请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署流程, 在此基础之上再考虑自定义开发的问题.
 
 *  API 手册可以访问这个[链接](docs/api.md), 其中提供了目前支持算子的情况
@@ -83,9 +85,9 @@ Select Tensorflow Lite Operations Type中有两个选项:
 - 目前CMSIS NN算子还处在测试阶段, 可能存在问题.
 - 以集成语音demo的Tensorflow Lite Micro框架为例, **本软件包在编译之后大约会占用690KB Flash空间, 28K RAM空间** (平台数据 : 树莓派4 Cortex A72内核 64位, gcc-arm-8.3交叉工具链), 所以暂时不推荐硬件资源过于紧凑的MCU使用本软件包.(未来会针对资源紧凑型MCU进行定制优化)
 - 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **请注意通过menuconfig来修改主函数栈的大小以及内存管理算法 !**
-- 本软件包目前只在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台上移植软件包并提出issue. 树莓派4移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5、联系方式 & 感谢
 
 * 维护：QingChuanWS
 * 主页：https://github.com/QingChuanWS
+* 欢迎各位RT-Threader试用本软件包并提出自己的建议, 我会认真听取并不断改进本软件包. 你的支持就是我最大的动力
