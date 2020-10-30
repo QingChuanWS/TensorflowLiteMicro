@@ -2,9 +2,11 @@
 
 中文版 | [English Version](./README_en.md)
 
+# 由于目前官方package仓库还未同步最新的Kconfig内容,请各位开发者暂时不要使用最新版本的软件包, 等待官方仓库维护结束后再使用最新的软件包, 对于造成的不便我深表歉意.
+
 ## 1、介绍
 
-本软件包是针对RT-Thread实时操作系统移植的嵌入式推理框架Tensorflow Lite Micro(简称TFLu), 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架实现深度学习模型的端测部署问题.
+Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统移植的嵌入式推理框架, 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架实现深度学习模型的端测部署问题
 
 ### 1.1 目录结构
 
@@ -41,7 +43,7 @@ RT-Thread online packages
 
 在成功下载 Tensorflow Lite Micro package 之后:
 
-- 通过menuconfig进行功能配置, 其中在menuconfig中的配置选项为:
+- 首先通过RT-Thread 的 env工具中 menuconfig 进行功能配置, 其中在menuconfig中的配置选项为:
 
 ```
 RT-Thread online packages
@@ -72,7 +74,7 @@ Select Tensorflow Lite Operations Type中有两个选项:
 
 注 : reference operation是应用TFLMicro的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations是应用针对ARM平台进行特定优化的算子(主要针对Cortex M4内核以上的平台, 对于特定平台有特定加速). **有关注意事项请参照第四部分!!**
 
-- 本软件包目前在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台(例如STM32)上移植本软件包, 来实现自己的idea. 树莓派4版本移植仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
+- 本软件包目前在树莓派4平台上实现成功运行, 其他平台还有待测试. 欢迎大家在其他平台(例如STM32)上移植本软件包, 来实现自己的idea. 对于手边有有树莓派4的同学可以移步到仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 - Tensorflow Lite Micro整个框架功能较为复杂, API较多, 请先参考[introduction.md](introduction.md), 然后通过[user-guide.md](user-guide.md)来学习基本的部署流程, 在此基础之上再考虑自定义开发的问题.
 
