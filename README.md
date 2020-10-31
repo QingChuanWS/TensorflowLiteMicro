@@ -2,8 +2,6 @@
 
 中文版 | [English Version](./README_en.md)
 
-# 由于目前官方package仓库还未同步最新的Kconfig内容,请各位开发者暂时不要使用最新版本的软件包, 等待官方仓库维护结束后再使用最新的软件包, 对于造成的不便我深表歉意.
-
 ## 1、介绍
 
 Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统移植的嵌入式推理框架, 主要解决在资源, 功耗, 性能等受限环境下的嵌入式系统中, 基于Tensorflow Lite框架实现深度学习模型的端测部署问题
