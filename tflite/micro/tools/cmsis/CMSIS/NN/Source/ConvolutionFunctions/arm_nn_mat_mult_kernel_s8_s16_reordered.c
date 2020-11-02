@@ -27,7 +27,7 @@
  * Target Processor:  Cortex-M cores
  * -------------------------------------------------------------------- */
 
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
+#include "arm_nnfunctions.h"
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
 
 /*

@@ -29,8 +29,8 @@
  * -------------------------------------------------------------------- */
 
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnsupportfunctions.h"
+#include "arm_nnfunctions.h"
+#include "arm_nnsupportfunctions.h"
 #if defined(ARM_MATH_MVEI)
 #include "arm_helium_utils.h"
 #endif

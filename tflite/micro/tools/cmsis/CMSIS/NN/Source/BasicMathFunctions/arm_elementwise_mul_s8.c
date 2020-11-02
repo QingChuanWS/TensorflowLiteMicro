@@ -21,16 +21,16 @@
  * Title:        arm_elementwise_mul_s8
  * Description:  Element wise multiplication
  *
- * $Date:        May 29, 2020
- * $Revision:    V.1.0.3
+ * $Date:        February 27, 2020
+ * $Revision:    V.1.0.2
  *
  * Target Processor:  Cortex-M cores
  *
  * -------------------------------------------------------------------- */
 
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnsupportfunctions.h"
+#include "arm_nnfunctions.h"
+#include "arm_nnsupportfunctions.h"
 
 /**
  *  @ingroup groupNN
@@ -62,7 +62,7 @@ arm_elementwise_mul_s8(const int8_t *input_1_vect,
                        const uint32_t block_size)
 {
 
-  int32_t loop_count;
+  uint32_t loop_count;
 #if defined(ARM_MATH_MVEI)
 
   loop_count = (block_size + 3) / 4;

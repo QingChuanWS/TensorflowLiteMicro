@@ -28,9 +28,9 @@
  *
  * -------------------------------------------------------------------- */
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "cmsis/CMSIS/NN/Include/arm_nn_types.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnsupportfunctions.h"
+#include "arm_nn_types.h"
+#include "arm_nnfunctions.h"
+#include "arm_nnsupportfunctions.h"
 
 /**
  *  @ingroup groupNN
@@ -60,7 +60,6 @@ arm_status arm_convolve_1_x_n_s8(const cmsis_nn_context* ctx,
                                  const cmsis_nn_dims* output_dims,
                                  q7_t *output_data)
 {
-    (void)bias_dims;
     arm_status status = ARM_MATH_SUCCESS;
     if (output_dims->w % 4 != 0)
     {

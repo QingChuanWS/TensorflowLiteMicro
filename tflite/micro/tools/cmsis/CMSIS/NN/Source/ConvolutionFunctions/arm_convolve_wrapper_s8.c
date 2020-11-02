@@ -28,8 +28,8 @@
  *
  * -------------------------------------------------------------------- */
 
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
-#include "cmsis/CMSIS/NN/Include/arm_nn_types.h"
+#include "arm_nnfunctions.h"
+#include "arm_nn_types.h"
 
 /**
  *  @ingroup groupNN

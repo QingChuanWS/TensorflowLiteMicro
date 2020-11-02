@@ -29,7 +29,7 @@
  * -------------------------------------------------------------------- */
 
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
+#include "arm_nnfunctions.h"
 
 /**
  *  @ingroup groupNN
@@ -162,9 +162,9 @@ arm_convolve_HWC_q15_basic(const q15_t * Im_in,
 
 #else
     /* Run the following code as reference implementation for Cortex-M0 and Cortex-M3 */
-    int  i, j, k, l, m, n;
+    uint16_t  i, j, k, l, m, n;
     int       conv_out;
-    int in_row, in_col;
+    signed char in_row, in_col;
 
     for (i = 0; i < ch_im_out; i++)
     {

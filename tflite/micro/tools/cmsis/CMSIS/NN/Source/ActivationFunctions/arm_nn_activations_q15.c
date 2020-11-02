@@ -30,7 +30,7 @@
 
 #include "cmsis/CMSIS/DSP/Include/arm_math.h"
 #include "cmsis/CMSIS/DSP/Include/arm_common_tables.h"
-#include "cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
+#include "arm_nnfunctions.h"
 
 /**
  *  @ingroup groupNN
