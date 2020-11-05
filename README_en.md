@@ -4,17 +4,27 @@
 
 ## 1. Introduction
 
-This software package is the Tensorflow Lite embedded inference framework Tensorflow Lite Micro software package for the RT-Thread ecosystem . Through this software package, the end deployment task of the deep learning model trained based on the Tensorflow Lite framework can be realized in the embedded system.
+The Tensorflow Lite Micro software package (TFLu) is an embedded reasoning framework for RT-Thread real-time operating system transplantation. It mainly solves the problem of deployment based on the Tensorflow Lite framework in embedded systems with resource constraints such as resources, power consumption, and performance.
+
+Platforms currently planned to be optimized:
+
+- [x] Raspberry Pi 4 (Cortex A72 core, 64-bit, gcc-arm-8.3 cross tool chain): RAM 28K, Flash 690K Repository link: https://github.com/QingChuanWS/raspi4-tfliteMicro
+
+- [x] ART-Pi (STM32H750, 32-bit, gcc-arm-none-eabi-9-2019): RAM 25K, Flash 542K
+
+- [ ] Nucleo-STM32L496(STM32L496, 32-bit, gcc-arm-none-eabi-9-2019)
+
+- [ ] Kendryte K210 (K210, 64-bit, riscv architecture)
 
 ### 1.1 Directory structure
-| Name        | Description                                              |
-| ----------- | :------------------------------------------------ |
-| docs        | Document                                          |
-| examples    | Tensorflow Lite Micro offical voice demo |
-| fixedpoint  | Fixed-point quantization library required by Tensorflow Lite Micro library           |
+| Name        | Description                                                  |
+| ----------- | :----------------------------------------------------------- |
+| docs        | Document                                                     |
+| examples    | Tensorflow Lite Micro offical audio demo                     |
+| fixedpoint  | Fixed-point quantization library required by Tensorflow Lite Micro library |
 | flatbuffers | Model interpretation library flatbuffer required by Tensorflow Lite Micro library |
-| ruy         | Matrix acceleration library required by Tensorflow Lite Micro library ruy        |
-| tensorflow  | Tensorflow Lite Micro library                       |
+| ruy         | Matrix acceleration library required by Tensorflow Lite Micro library ruy |
+| tensorflow  | Tensorflow Lite Micro library                                |
 
 
 ### 1.2 License
@@ -39,10 +49,9 @@ Then let the RT-Thread package manager automatically update, or use the `pkgs --
 
 ## 3. Use Tensorflow Lite Micro
 
-After successfully downloading the Tensorflow Lite Micro package:
+After successfully downloading Tensorflow Lite Micro package:
 
-- Change the package folder name of `TensorflowLiteMicro_xxx` (where `xxx` is the package version number) downloaded under the `packages` file to `TensorflowLiteMicro` (that is, remove the version number, so as not to affect compilation)
-- Function configuration through menuconfig, the configuration options in menuconfig are:
+- First, perform configuration through menuconfig in RT-Thread's env tool, where the configuration options in menuconfig are: 
 
 ```
 RT-Thread online packages
@@ -50,6 +59,7 @@ RT-Thread online packages
         [*] Tensorflow Lite Micro: a lightweight deep learning end-test inference framework for RT-Thread operating system.
             Version(latest) --->
             Select Offical Example(Enable Tensorflow Lite Micro aduio example) --->
+            Select Tensorflow Lite Operations Type (Using Tensorflow Lite reference operations)  --->
 ```
 
 Among them, there are two options in Select Offical Example:
@@ -59,25 +69,36 @@ Among them, there are two options in Select Offical Example:
 ( ) No Tensorflow Lite Micro example
 ```
 
-Among them, audio example is to implement the official audio demo, No example does not integrate the example file, only uses the Tensorflow Lite Micro standard framework. **For the precautions of the menucofing option, please refer to the 4. Precautions section**
+Note: The audio example is an audio example carried by the official implementation. No example does not integrate the example file and only uses the Tensorflow Lite Micro standard framework.
 
-- The whole framework of Tensorflow Lite Micro has more complicated functions and many APIs. Please refer to [introduction.md](introduction.md) first, and then use [user-guide.md](user-guide.md) to learn the basic deployment process, on this basis, consider the issue of custom development.
+- If you choose the audio example, please copy the audio_main.cc file in the example folder to the Application directory of the project, then compile, burn/download to see the effect.
+
+There are two options in Select Tensorflow Lite Operations Type:
+
+```
+(X) Using Tensorflow Lite reference operations
+( ) Using Tensorflow Lite CMSIS NN operations 
+```
+
+Note: Reference operation is a general-purpose operator using TFLMicro (the operator is isolated from the platform, and has good portability), CMSIS NN operations is the application of the CMSIS library to accelerate the op of the platform with the ARM core. **For precautions, please refer to fourth part!!**
+
+- The whole framework of Tensorflow Lite Micro has more complicated functions and various APIs. Please refer to [introduction.md](introduction.md) in the document first, and then use [user-guide.md](user-guide.md) to understand the basics Deep learning end-test deployment process. After having the above foundation, you can try to develop your own end-test deployment tasks.
 
 * The API manual can visit this [link](docs/api.md), which provides the current support for operators
 * More documents are located under [`/docs`](/docs), **Be sure to check** before use
 
 ## 4. Matters needing attention
 
-- If the audio example option is selected in the menuconfig, the software package will use the self main function, and the user needs to manually delete all main functions except `packages/TensorflowLiteMicro/example/audio_main.cc`
+- About ʻUsing Tensorflow Lite CMSIS NN operations` option:
+  - At present, CMSIS's optimization of operators is mainly for the calculation and optimization of cores above ARM Cortex M4 (which are equipped with DSP, FPU and other hardware acceleration components).It is not recommended to apply this option to MCUs below M4.
+  - Currently, the operator optimization of CMSIS only supports M series MCUs, A series, R series does not recommend this option.
+  - At present, the CMSIS NN operator is still in the testing stage, and there may be problems.
+- This software package occupies 16KB RAM space at runtime, and the built-in speech recognition case occupies a total of 22KB memory at runtime. **Please pay attention to modify the size of the main function stack and the memory management algorithm through menuconfig!**
 
-- If No example is selected, the system does not have main function, users can design the main function according to their own needs to call the Tensorflow Lite Micro framework
 
-- **This software package will occupy approximately 480KB Flash space and 92KB RAM space after compilation**, so it is not recommended for MCU systems with few hardware resources to use this software package
-- This software package occupies 16KB RAM space when running, and the built-in voice recognition case occupies a total of 22KB memory when running. **You need to modify the size of the main function stack and the memory management algorithm through menuconfig! **
-
-- This software package currently only runs successfully on the Raspberry Pi 4 platform, other platforms have yet to be tested. Raspberry Pi 4 porting  repositories link: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
 ## 5. Contact & Thanks
 
 * Maintenance: QingChuanWS
 * Homepage: https://github.com/QingChuanWS
+* Welcome to RT-Threader to try this package and make your own suggestions. I will listen carefully and continue to improve this package. Your support is my biggest motivation

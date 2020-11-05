@@ -6,7 +6,7 @@
 
 Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统移植的嵌入式推理框架, 主要解决在资源, 功耗, 性能等资源受限的嵌入式系统中, 部署基于Tensorflow Lite框架实现深度学习模型任务
 
-目前计划移植的平台 : 
+目前计划进行调优的平台 : 
 
 - [x] 树莓派4 ( Cortex A72内核, 64位, gcc-arm-8.3交叉工具链 )  : RAM 28K, Flash 690K  仓库链接: https://github.com/QingChuanWS/raspi4-tfliteMicro
 
@@ -14,7 +14,7 @@ Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统�
 
 - [ ] Nucleo-STM32L496(STM32L496, 32位, gcc-arm-none-eabi-9-2019)
 
-- [ ] Kendryte K210(K210, 64位, RiscV架构)
+- [ ] Kendryte K210(K210, 64位, riscv架构)
 
 ### 1.1 目录结构
 
