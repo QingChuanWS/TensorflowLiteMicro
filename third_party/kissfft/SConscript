@@ -1,0 +1,29 @@
+from building import *
+import os
+
+cwd     = GetCurrentDir()
+src     = Glob('tools/*.c') + Glob('*.c')
+
+#.
+root =  str(Dir('#'))
+packages = os.path.join(root, 'packages')
+file_list = os.listdir(packages)
+for f in file_list:
+    if(f.split('-')[0] == 'TensorflowLiteMicro'):
+        tflm_pkg = os.path.join(packages, f)
+        break
+#./third_party/flatbuffer/include
+flatbuffer = os.path.join(tflm_pkg, "third_party/flatbuffers/include")
+#./third_party/gemmlowp
+gemmlowp = os.path.join(tflm_pkg, "third_party/gemmlowp")
+#./third_party/kissfft
+kissfft = os.path.join(tflm_pkg, "third_party/kissfft")
+#./third_party/ruy
+ruy = os.path.join(tflm_pkg, "third_party/ruy")
+
+
+CPPPATH = [tflm_pkg, flatbuffer, gemmlowp, kissfft, ruy]
+
+group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+
+Return('group')

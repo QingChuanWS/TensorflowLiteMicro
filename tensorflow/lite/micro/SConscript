@@ -1,0 +1,95 @@
+from building import *
+import os
+
+src = Split('''
+kernels/activations.cc
+kernels/arg_min_max.cc
+kernels/ceil.cc
+kernels/circular_buffer.cc
+kernels/comparisons.cc
+kernels/concatenation.cc
+kernels/dequantize.cc
+kernels/elementwise.cc
+kernels/ethosu.cc
+kernels/floor.cc
+kernels/hard_swish.cc
+kernels/kernel_runner.cc
+kernels/kernel_util.cc
+kernels/l2norm.cc
+kernels/logical.cc
+kernels/logistic.cc
+kernels/maximum_minimum.cc
+kernels/neg.cc
+kernels/pack.cc
+kernels/pad.cc
+kernels/prelu.cc
+kernels/quantize.cc
+kernels/reduce.cc
+kernels/reshape.cc
+kernels/resize_nearest_neighbor.cc
+kernels/round.cc
+kernels/split.cc
+kernels/strided_slice.cc
+kernels/sub.cc
+kernels/svdf.cc
+kernels/tanh.cc
+kernels/unpack.cc
+''') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
+    + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc')
+
+if GetDepend('PKG_USING_TENSORFLOWLITEMICRO_REFERENCE'):      
+    src += Split('''
+    kernels/add.cc
+    kernels/conv.cc
+    kernels/depthwise_conv.cc
+    kernels/fully_connected.cc
+    kernels/mul.cc
+    kernels/pooling.cc
+    kernels/softmax.cc
+    ''')
+if GetDepend('PKG_USING_TENSORFLOWLITEMICRO_CMSISNN'):
+    src += Split('''
+    kernels/cmsis-nn/add.cc
+    kernels/cmsis-nn/conv.cc
+    kernels/cmsis-nn/depthwise_conv.cc
+    kernels/cmsis-nn/fully_connected.cc
+    kernels/cmsis-nn/mul.cc
+    kernels/cmsis-nn/pooling.cc
+    kernels/cmsis-nn/softmax.cc
+    ''')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ReshapeFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/*.c')
+    
+#.
+root =  str(Dir('#'))
+packages = os.path.join(root, 'packages')
+file_list = os.listdir(packages)
+for f in file_list:
+    if(f.split('-')[0] == 'TensorflowLiteMicro'):
+        tflm_pkg = os.path.join(packages, f)
+        break
+#./third_party/flatbuffer/include
+flatbuffer = os.path.join(tflm_pkg, "third_party/flatbuffers/include")
+#./third_party/gemmlowp
+gemmlowp = os.path.join(tflm_pkg, "third_party/gemmlowp")
+#./third_party/kissfft
+kissfft = os.path.join(tflm_pkg, "third_party/kissfft")
+#./third_party/ruy
+ruy = os.path.join(tflm_pkg, "third_party/ruy")
+#./tensorflow/lite/micro/tools/make/downloads
+cmsis = os.path.join(tflm_pkg, "tensorflow/lite/micro/tools/make/downloads")
+
+
+CPPPATH = [tflm_pkg, flatbuffer, gemmlowp, kissfft, ruy, cmsis]
+
+group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+
+Return('group')

@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-The Tensorflow Lite Micro software package (TFLu) is an embedded reasoning framework for RT-Thread real-time operating system transplantation. It mainly solves the problem of deployment based on the Tensorflow Lite framework in embedded systems with resource constraints such as resources, power consumption, and performance.
+The Tensorflow Lite Micro software package (TFLu) is an embedded inference framework for RT-Thread real-time operating system transplantation. It mainly solves the problem of deployment based on the Tensorflow Lite framework in embedded systems with resource constraints such as resources, power consumption, and performance.
 
 Platforms currently planned to be optimized:
 
@@ -21,10 +21,8 @@ Platforms currently planned to be optimized:
 | ----------- | :----------------------------------------------------------- |
 | docs        | Document                                                     |
 | examples    | Tensorflow Lite Micro offical audio demo                     |
-| fixedpoint  | Fixed-point quantization library required by Tensorflow Lite Micro library |
-| flatbuffers | Model interpretation library flatbuffer required by Tensorflow Lite Micro library |
-| ruy         | Matrix acceleration library required by Tensorflow Lite Micro library ruy |
 | tensorflow  | Tensorflow Lite Micro library                                |
+| third_party | Third party libraries on which tensorflow Lite micro depends |
 
 
 ### 1.2 License
@@ -89,9 +87,9 @@ Note: Reference operation is a general-purpose operator using TFLMicro (the oper
 
 ## 4. Matters needing attention
 
-- About ʻUsing Tensorflow Lite CMSIS NN operations` option:
-  - At present, CMSIS's optimization of operators is mainly for the calculation and optimization of cores above ARM Cortex M4 (which are equipped with DSP, FPU and other hardware acceleration components).It is not recommended to apply this option to MCUs below M4.
-  - Currently, the operator optimization of CMSIS only supports M series MCUs, A series, R series does not recommend this option.
+- About `Using Tensorflow Lite CMSIS NN operations` option:
+  - At present, CMSIS's optimization of operators is mainly for the calculation and optimization of cores above ARM Cortex M4 (which are equipped with DSP, FPU and other hardware acceleration components). It is not recommended to apply this option to MCUs below M4.
+  - Currently, the operator optimization of CMSIS only supports M series MCUs, ARM A series, R series does not recommend this option.
   - At present, the CMSIS NN operator is still in the testing stage, and there may be problems.
 - This software package occupies 16KB RAM space at runtime, and the built-in speech recognition case occupies a total of 22KB memory at runtime. **Please pay attention to modify the size of the main function stack and the memory management algorithm through menuconfig!**
 

@@ -22,10 +22,8 @@ Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统�
 | ---- | :--- |
 | docs  | 文档目录 |
 | examples | Tensorflow Lite Micro示例 |
-| fixedpoint | Google Fixedpoint定点量化库 |
-| flatbuffers | Google Flatbuffer模型解释库 |
-| ruy | Google Ruy矩阵计算加速库 |
-| tflite | Google Tensorflow Lite Micro推理框架 |
+| third_party | Tensorflow Lite Micro依赖的第三方库 |
+| tensorflow | Google Tensorflow Lite Micro推理框架 |
 
 ### 1.2 许可证
 
@@ -51,7 +49,7 @@ RT-Thread online packages
 
 在成功下载 Tensorflow Lite Micro package 之后:
 
-- 首先通过RT-Thread 的 env工具中 menuconfig 进行功能配置, 其中在menuconfig中的配置选项为:
+- 首先通过RT-Thread 的 env 工具中 menuconfig 进行功能配置, 其中在 menuconfig 中的配置选项为:
 
 ```
 RT-Thread online packages
@@ -62,25 +60,25 @@ RT-Thread online packages
             Select Tensorflow Lite Operations Type (Using Tensorflow Lite reference operations)  --->
 ```
 
-其中, Select Offical Example中有两个选项:
+其中, Select Offical Example 中有两个选项:
 
 ```
 (X) Enable Tensorflow Lite Micro audio example
 ( ) No Tensorflow Lite Micro example
 ```
 
-注 : audio example是执行官方携带的语音示例, No example则是不集成example文件, 只使用Tensorflow Lite Micro标准框架. 
+注 : audio example 是执行官方携带的语音示例, No example 则是不集成 example 文件, 只使用 Tensorflow Lite Micro 标准框架. 
 
 - 如果选择了语音示例, 请将example文件夹下的audio_main.cc文件拷贝到工程的Application目录中, 然后编译, 烧录/下载查看效果了
 
-Select Tensorflow Lite Operations Type中有两个选项:
+Select Tensorflow Lite Operations Type 中有两个选项:
 
 ```
 (X) Using Tensorflow Lite reference operations
 ( ) Using Tensorflow Lite CMSIS NN operations 
 ```
 
-注 : reference operation是应用TFLMicro的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations是应用CMSIS库对具有ARM内核的平台进行算子的加速. **有关注意事项请参照第四部分!!**
+注 : reference operation 是应用 TFLMicro 的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations 是应用CMSIS库对具有ARM内核的平台进行算子的加速. **有关注意事项请参照第四部分!!**
 
 - Tensorflow Lite Micro整个框架功能较为复杂, 各类API比较多, 请先参考文档中[introduction.md](introduction.md), 然后通过 [user-guide.md](user-guide.md) 来了解基本的深度学习端测部署流程. 在有了以上基础之后, 就可以尝试开发自己端测部署任务了.
 
