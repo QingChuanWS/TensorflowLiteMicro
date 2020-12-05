@@ -4,45 +4,13 @@ import os
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_REFERENCE']):      
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
     + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
-    + Glob('memory_planner/*.cc') + Glob('testing/*.cc')
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/reference/*.cc')
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_CMSISNN']):
-    src = Split('''
-    kernels/activations.cc
-    kernels/arg_min_max.cc
-    kernels/ceil.cc
-    kernels/circular_buffer.cc
-    kernels/comparisons.cc
-    kernels/concatenation.cc
-    kernels/dequantize.cc
-    kernels/elementwise.cc
-    kernels/ethosu.cc
-    kernels/floor.cc
-    kernels/hard_swish.cc
-    kernels/kernel_runner.cc
-    kernels/kernel_util.cc
-    kernels/l2norm.cc
-    kernels/logical.cc
-    kernels/logistic.cc
-    kernels/maximum_minimum.cc
-    kernels/neg.cc
-    kernels/pack.cc
-    kernels/pad.cc
-    kernels/prelu.cc
-    kernels/quantize.cc
-    kernels/reduce.cc
-    kernels/reshape.cc
-    kernels/resize_nearest_neighbor.cc
-    kernels/round.cc
-    kernels/split.cc
-    kernels/strided_slice.cc
-    kernels/sub.cc
-    kernels/svdf.cc
-    kernels/tanh.cc
-    kernels/unpack.cc
-    ''') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
+    src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
     + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
     + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc')
+    
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/*.c')
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/*.c')
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/*.c')
