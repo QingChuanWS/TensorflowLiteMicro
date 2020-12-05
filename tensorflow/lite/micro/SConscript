@@ -3,14 +3,16 @@ import os
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_REFERENCE']):      
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
-    + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
-    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/reference/*.cc')
+    + Glob('examples/person_detection_experimental/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/reference/*.cc') \
+    + Glob('tools/make/downloads/person_model_int8/*.cc')
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_CMSISNN']):
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
-    + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
-    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc')
-    
+    + Glob('examples/person_detection_experimental/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc') \
+    + Glob('tools/make/downloads/person_model_int8/*.cc')
+
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/*.c')
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/*.c')
     src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/*.c')
