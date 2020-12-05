@@ -4,7 +4,7 @@ import os
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_REFERENCE']):      
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
     + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
-    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc')
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc')
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_CMSISNN']):
     src = Split('''
