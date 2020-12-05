@@ -1,0 +1,48 @@
+from building import *
+import os
+
+if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_REFERENCE']):      
+    src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
+    + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/reference/*.cc')
+
+if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_CMSISNN']):
+    src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
+    + Glob('examples/micro_speech/*.cc') + Glob('examples/micro_speech/micro_features/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc')
+    
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ReshapeFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/*.c')
+    
+#.
+root =  str(Dir('#'))
+packages = os.path.join(root, 'packages')
+file_list = os.listdir(packages)
+for f in file_list:
+    if(f.split('-')[0] == 'TensorflowLiteMicro'):
+        tflm_pkg = os.path.join(packages, f)
+        break
+#./third_party/flatbuffer/include
+flatbuffer = os.path.join(tflm_pkg, "third_party/flatbuffers/include")
+#./third_party/gemmlowp
+gemmlowp = os.path.join(tflm_pkg, "third_party/gemmlowp")
+#./third_party/kissfft
+kissfft = os.path.join(tflm_pkg, "third_party/kissfft")
+#./third_party/ruy
+ruy = os.path.join(tflm_pkg, "third_party/ruy")
+#./tensorflow/lite/micro/tools/make/downloads
+cmsis = os.path.join(tflm_pkg, "tensorflow/lite/micro/tools/make/downloads")
+
+
+CPPPATH = [tflm_pkg, flatbuffer, gemmlowp, kissfft, ruy, cmsis]
+
+group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+
+Return('group')
