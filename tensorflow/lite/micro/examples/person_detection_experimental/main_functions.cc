@@ -12,6 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
+#include <rtthread.h>
 
 #include "tensorflow/lite/micro/examples/person_detection_experimental/main_functions.h"
 
@@ -45,7 +46,7 @@ static uint8_t tensor_arena[kTensorArenaSize];
 }  // namespace
 
 // The name of this function is important for Arduino compatibility.
-void setup() {
+void person_detect_init() {
   // Set up logging. Google style is to avoid globals or statics because of
   // lifetime uncertainty, but since this has a trivial destructor it's okay.
   // NOLINTNEXTLINE(runtime-global-variables)
@@ -95,11 +96,12 @@ void setup() {
   input = interpreter->input(0);
 }
 
+
 // The name of this function is important for Arduino compatibility.
-void loop() {
+bool person_detect(rt_uint8_t *image_data_buf) {
   // Get image from provider.
   if (kTfLiteOk != GetImage(error_reporter, kNumCols, kNumRows, kNumChannels,
-                            input->data.int8)) {
+                            input->data.int8, image_data_buf)) {
     TF_LITE_REPORT_ERROR(error_reporter, "Image capture failed.");
   }
 
@@ -113,5 +115,10 @@ void loop() {
   // Process the inference results.
   int8_t person_score = output->data.uint8[kPersonIndex];
   int8_t no_person_score = output->data.uint8[kNotAPersonIndex];
-  RespondToDetection(error_reporter, person_score, no_person_score);
+  if (person_score - no_person_score > 50) {
+    return true;
+  }
+  else{
+    return false;
+  }
 }

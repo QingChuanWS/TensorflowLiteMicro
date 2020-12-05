@@ -14,11 +14,11 @@ limitations under the License.
 ==============================================================================*/
 
 #include "tensorflow/lite/micro/examples/person_detection_experimental/image_provider.h"
-#include "tensorflow/lite/micro/examples/person_detection_experimental/main.h"
 #include "tensorflow/lite/micro/examples/person_detection_experimental/model_settings.h"
 
 TfLiteStatus GetImage(tflite::ErrorReporter* error_reporter, int image_width,
-                      int image_height, int channels, int8_t* image_data) {
+                      int image_height, int channels, int8_t* image_data,
+                      uint8_t *image_data_buf) {
   for (int i = 0; i < image_width * image_height * channels; ++i) {
     image_data[i] = image_data_buf[i];
   }

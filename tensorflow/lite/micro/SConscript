@@ -4,8 +4,18 @@ import os
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_REFERENCE']):      
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
     + Glob('examples/person_detection_experimental/*.cc') \
-    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/reference/*.cc') \
+    + Glob('memory_planner/*.cc') + Glob('testing/*.cc') + Glob('kernels/cmsis-nn/*.cc') \
     + Glob('tools/make/downloads/person_model_int8/*.cc')
+
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/ReshapeFunctions/*.c')
+    src += Glob('tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/*.c')
 
 if GetDepend(['PKG_USING_TENSORFLOWLITEMICRO_CMSISNN']):
     src = Glob('kernels/*.cc') + Glob('*.c') + Glob('*.cc') + Glob('benchmarks/*.cc') \
