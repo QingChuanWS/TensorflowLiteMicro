@@ -13,13 +13,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/person_detection_experimental/detection_responder.h"
+#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_NO_MICRO_FEATURES_DATA_H_
+#define TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_NO_MICRO_FEATURES_DATA_H_
 
-// This dummy implementation writes person and no person scores to the error
-// console. Real applications will want to take some custom action instead, and
-// should implement their own versions of this function.
-void RespondToDetection(tflite::ErrorReporter* error_reporter,
-                        int8_t person_score, int8_t no_person_score) {
-  TF_LITE_REPORT_ERROR(error_reporter, "person score:%d no person score %d",
-                       person_score, no_person_score);
-}
+extern const int g_no_micro_f9643d42_nohash_4_width;
+extern const int g_no_micro_f9643d42_nohash_4_height;
+extern const signed char g_no_micro_f9643d42_nohash_4_data[];
+
+#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_NO_MICRO_FEATURES_DATA_H_

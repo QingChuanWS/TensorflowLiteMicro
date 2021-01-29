@@ -1,4 +1,4 @@
-/* Copyright 2020 The TensorFlow Authors. All Rights Reserved.
+/* Copyright 2019 The TensorFlow Authors. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,10 +13,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#ifndef TENSORFLOW_LITE_MICRO_BENCHMARKS_KEYWORD_SCRAMBLED_MODEL_DATA_H_
-#define TENSORFLOW_LITE_MICRO_BENCHMARKS_KEYWORD_SCRAMBLED_MODEL_DATA_H_
+#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_YES_MICRO_FEATURES_DATA_H_
+#define TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_YES_MICRO_FEATURES_DATA_H_
 
-extern const unsigned char g_keyword_scrambled_model_data[];
-extern const unsigned int g_keyword_scrambled_model_data_length;
+extern const int g_yes_micro_f2e59fea_nohash_1_width;
+extern const int g_yes_micro_f2e59fea_nohash_1_height;
+extern const signed char g_yes_micro_f2e59fea_nohash_1_data[];
 
-#endif  // TENSORFLOW_LITE_MICRO_BENCHMARKS_KEYWORD_SCRAMBLED_MODEL_DATA_H_
+#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MICRO_FEATURES_YES_MICRO_FEATURES_DATA_H_

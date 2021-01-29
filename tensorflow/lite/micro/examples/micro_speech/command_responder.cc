@@ -13,16 +13,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_PERSON_DETECTION_EXPERIMENTAL_MAIN_FUNCTIONS_H_
-#define TENSORFLOW_LITE_MICRO_EXAMPLES_PERSON_DETECTION_EXPERIMENTAL_MAIN_FUNCTIONS_H_
+#include "tensorflow/lite/micro/examples/micro_speech/command_responder.h"
 
-// Initializes all data needed for the example. The name is important, and needs
-// to be setup() for Arduino compatibility.
-void setup();
-
-// Runs one iteration of data gathering and inference. This should be called
-// repeatedly from the application code. The name needs to be loop() for Arduino
-// compatibility.
-void loop();
-
-#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_PERSON_DETECTION_EXPERIMENTAL_MAIN_FUNCTIONS_H_
+// The default implementation writes out the name of the recognized command
+// to the error console. Real applications will want to take some custom
+// action instead, and should implement their own versions of this function.
+void RespondToCommand(tflite::ErrorReporter* error_reporter,
+                      int32_t current_time, const char* found_command,
+                      uint8_t score, bool is_new_command) {
+  if (is_new_command) {
+    TF_LITE_REPORT_ERROR(error_reporter, "Heard %s (%d) @%dms", found_command,
+                         score, current_time);
+  }
+}

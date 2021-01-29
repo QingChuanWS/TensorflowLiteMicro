@@ -13,14 +13,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/lite/micro/examples/person_detection_experimental/image_provider.h"
-#include "tensorflow/lite/micro/examples/person_detection_experimental/main.h"
-#include "tensorflow/lite/micro/examples/person_detection_experimental/model_settings.h"
+#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MAIN_FUNCTIONS_H_
+#define TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MAIN_FUNCTIONS_H_
 
-TfLiteStatus GetImage(tflite::ErrorReporter* error_reporter, int image_width,
-                      int image_height, int channels, int8_t* image_data) {
-  for (int i = 0; i < image_width * image_height * channels; ++i) {
-    image_data[i] = image_data_buf[i];
-  }
-  return kTfLiteOk;
+// Expose a C friendly interface for main functions.
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Initializes all data needed for the example. The name is important, and needs
+// to be setup() for Arduino compatibility.
+void setup();
+
+// Runs one iteration of data gathering and inference. This should be called
+// repeatedly from the application code. The name needs to be loop() for Arduino
+// compatibility.
+void loop();
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_MICRO_SPEECH_MAIN_FUNCTIONS_H_

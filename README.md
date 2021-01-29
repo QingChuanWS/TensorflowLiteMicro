@@ -21,9 +21,9 @@ Tensorflow Lite Micro软件包(简称TFLu)是针对RT-Thread实时操作系统�
 | 名称 | 说明 |
 | ---- | :--- |
 | docs  | 文档目录 |
-| examples | Tensorflow Lite Micro示例 |
-| third_party | Tensorflow Lite Micro依赖的第三方库 |
-| tensorflow | Google Tensorflow Lite Micro推理框架 |
+| examples | Tensorflow Lite Micro demo |
+| third_party | Tensorflow Lite Micro 依赖的第三方库 |
+| tensorflow | Tensorflow Lite Micro 推理框架 |
 
 ### 1.2 许可证
 
@@ -63,33 +63,37 @@ RT-Thread online packages
 其中, Select Offical Example 中有两个选项:
 
 ```
-(X) Enable Tensorflow Lite Micro audio example
-( ) No Tensorflow Lite Micro example
+( ) Enable Tensorflow Lite Micro audio example
+(X) No Tensorflow Lite Micro example
 ```
 
-注 : audio example 是执行官方携带的语音示例, No example 则是不集成 example 文件, 只使用 Tensorflow Lite Micro 标准框架. 
+注 : audio example 是执行官方携带的语音示例, No example 则是不集成 example 文件, 只使用 Tensorflow Lite Micro 标准框架. (注：默认不开启语音实例)
 
 - 如果选择了语音示例, 请将example文件夹下的audio_main.cc文件拷贝到工程的Application目录中, 然后编译, 烧录/下载查看效果了
 
 Select Tensorflow Lite Operations Type 中有两个选项:
 
 ```
-(X) Using Tensorflow Lite reference operations
-( ) Using Tensorflow Lite CMSIS NN operations 
+( ) Using Tensorflow Lite reference operations
+(X) Using Tensorflow Lite CMSIS NN operations 
 ```
 
-注 : reference operation 是应用 TFLMicro 的通用算子(算子与平台隔离,可移植性好),  CMSIS NN operations 是应用CMSIS库对具有ARM内核的平台进行算子的加速. **有关注意事项请参照第四部分!!**
+- reference operation 对应的是 TFLMicro 的通用算子库，其中的各类算子实现与硬件平台隔离，具备良好的可移植性，但是运行速度较慢。
 
-- Tensorflow Lite Micro整个框架功能较为复杂, 各类API比较多, 请先参考文档中[introduction.md](introduction.md), 然后通过 [user-guide.md](user-guide.md) 来了解基本的深度学习端测部署流程. 在有了以上基础之后, 就可以尝试开发自己端测部署任务了.
+- CMSIS NN operations 对应的是 TFLMicro 基于CMSIS-NN 库进行二次开发的算子库，对ARM Cortex M4，M7 有大幅加速. **使用的有关注意事项请参照第四部分!!**
 
-*  API 手册可以访问这个[链接](docs/api.md), 其中提供了目前支持算子的情况
-* 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
+**注意：**
+
+- Tensorflow Lite Micro 框架中的模块较多，使用之前请先参考 [introduction.md ](introduction.md), 通过 [user-guide.md](user-guide.md) 来了解基本使用流程流程。
+
+*  API 手册可以访问[此链接](docs/api.md), 其中提供了目前支持算子的情况
+* 更多文档位于 [`docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项 
 
 - 关于`Using Tensorflow Lite CMSIS NN operations `选项:
-  - 目前CMSIS对于算子的优化主要针对ARM Cortex M4以上的内核 ( 其搭载了DSP, FPU等硬件加速部件) 进行计算优化, 不推荐M4以下的MCU应用该选项. 
-  - 目前CMSIS的算子优化目前只支持M系列的MCU, A系列, R系列不推荐应用该选项.
+  - CMSIS-NN 对于算子的优化主要针对 ARM Cortex M4 以上的 ARM 内核 ( 因为其搭载了DSP, FPU等硬件加速部件) 进行计算优化, M4 以下的 MCU 不建议使用该软件包。 
+  - CMSIS-NN 的优化目前只提供了M系列的MCU；ARM Cortex A系列, R系列不应应用该选项.
   - 目前CMSIS NN算子还处在测试阶段, 可能存在问题.
 - 本软件包在运行时会占用16KB RAM空间, 同时自带的语音识别案例在运行时总共占用22KB内存, **请注意通过menuconfig来修改主函数栈的大小以及内存管理算法 !**
 
@@ -97,4 +101,5 @@ Select Tensorflow Lite Operations Type 中有两个选项:
 
 * 维护：QingChuanWS
 * 主页：https://github.com/QingChuanWS
-* 欢迎各位RT-Threader试用本软件包并提出自己的建议, 我会认真听取并不断改进本软件包. 你的支持就是我最大的动力
+* 欢迎各位developer使用该组件并提出自己的建议, 我会认真听取并不断改进. 您的支持就是我最大的动力
+
