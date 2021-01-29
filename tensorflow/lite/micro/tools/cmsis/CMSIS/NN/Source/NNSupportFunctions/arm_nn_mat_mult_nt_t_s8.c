@@ -37,7 +37,7 @@
 ({ \
   uint32_t result; \ 
   __ASM ("sxtb16 %0, %1, ROR %2" : "=r" (result) : "r" (op1), "i" (rotate) ); \
-  result;\
+  result;	\
 })
 
 /**

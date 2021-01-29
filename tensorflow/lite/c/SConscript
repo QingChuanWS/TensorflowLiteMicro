@@ -24,6 +24,6 @@ ruy = os.path.join(tflm_pkg, "third_party/ruy")
 
 CPPPATH = [tflm_pkg, flatbuffer, gemmlowp, kissfft, ruy]
 
-group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+group = DefineGroup('lite/c', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
 
 Return('group')

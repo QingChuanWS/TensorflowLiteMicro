@@ -92,6 +92,6 @@ cmsis = os.path.join(tflm_pkg, "tensorflow/lite/micro/tools/")
 
 CPPPATH = [tflm_pkg, flatbuffer, gemmlowp, kissfft, ruy, cmsis]
 
-group = DefineGroup('lite', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
+group = DefineGroup('lite/micro', src, depend = ['PKG_USING_TENSORFLOWLITEMICRO'], CPPPATH = CPPPATH)
 
 Return('group')
